@@ -9,7 +9,7 @@ class Period extends Component {
         text: "",
         productCategory: "",
         image: "",
-        results: ["test","second entry"]
+        results: []
     };
 
     componentDidMount() {
@@ -86,7 +86,7 @@ class Period extends Component {
                         placeholder="image" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
-                <PeriodPostWrapper posts={this.state.results}/>
+                <PeriodPostWrapper username ={this.state.author} posts={this.state.results}/>
                 </div>
             ) : (
                 <h1>Login, sweetheart</h1>
