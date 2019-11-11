@@ -6,7 +6,6 @@ class Period extends Component {
     state = {
         author: this.props.username,
         title: "",
-        text: "",
         productCategory: "",
         image: "",
         results: []
@@ -36,9 +35,7 @@ class Period extends Component {
         e.preventDefault();
 
         const newPeriodPost = {
-            author: this.state.author,
             title: this.state.title,
-            text: this.state.text,
             image: this.state.image,
             productCategory: this.state.productCategory
         }
@@ -48,7 +45,7 @@ class Period extends Component {
 
         this.setState(
             {
-                author: "", title: "", text: "", productCategory: "", image: ""
+                title: "", productCategory: "", image: ""
             }
         )
     }
@@ -66,12 +63,6 @@ class Period extends Component {
                         value={this.state.title}
                         onChange={this.handleInputChange}
                         placeholder="title" />
-                    <input
-                        name="text"
-                        type="text"
-                        value={this.state.text}
-                        onChange={this.handleInputChange}
-                        placeholder="text" />
                     <input
                         name="productCategory"
                         type="text"
