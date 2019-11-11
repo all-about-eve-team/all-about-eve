@@ -1,4 +1,6 @@
 import React from "react";
+import PeriodProductImage from "./PeriodProductImage"
+import PeriodComment from "./PeriodComment"
 
 function PeriodPostWrapper(props) {
     console.log(props.posts)
@@ -9,7 +11,7 @@ function PeriodPostWrapper(props) {
           <li>
         <div className="row">
           <div className="col-sm-4">
-            <PeriodProductImage image={post.image}/>
+            <PeriodProductImage title={post.title} image={post.image}/>
           </div>
           <div className="col-sm-8">
             {post.title}
