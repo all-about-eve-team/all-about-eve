@@ -4,18 +4,29 @@ function PeriodPostWrapper(props) {
     console.log(props.posts)
   return (
     <div>
-    <ul className="list-group search-results">
-      {props.posts.map(post => (
-        <li key={post._id} className="list-group-item">
-        Title: {post.title}
-         -----
-         {post.text}
-        </li>
-      ))}
-    </ul>
-    <form>Add Comment</form>
+      <ul>
+        {props.posts.map(post =>(
+          <li>
+        <div className="row">
+          <div className="col-sm-4">
+            <PeriodProductImage image={post.image}/>
+          </div>
+          <div className="col-sm-8">
+            {post.title}
+          </div>
+          </div>
+          <div class="row">
+            {/* comments are gonna get squirrelly */}
+            <PeriodComment comments={post.comments}/>
+          </div>
+          </li>
+          ))}
+         
+      </ul>
     </div>
+    
   );
 }
 
 export default PeriodPostWrapper;
+
