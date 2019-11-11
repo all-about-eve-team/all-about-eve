@@ -5,7 +5,8 @@ const periodCommentSchema = new Schema({
     // documents belonging to schema
     author: {type: String, required: true},
     text: {type: String, required: true},
-    date: {type: Date, default: Date.now}
+    date: {type: Date, default: Date.now},
+    active: {type: Boolean, default: true}
     // documents belonging to other collections
 });
 
