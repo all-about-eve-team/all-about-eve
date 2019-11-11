@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
+import { Card } from '../components/Card/index';
+
 
 class Forum extends Component {
     state = {
         title: "",
         text: "",
         category: "",
+        submittedComment: []
     };
 
     handleInputChange = e => {
@@ -32,16 +35,29 @@ class Forum extends Component {
         // axios
 
         // connecting to utils to create a post.
-        API.createPost(newPost);
+        let newComments = this.state.submittedComment;
+        newComments.unshift(this.state.text);
+        this.setState({
+            submittedComment: newComments,
+            title: "",
+            text: "",
+            category: "",
 
-        this.setState(
-            {
-                title: "", text: "", category: ""
-            }
-        )
+        });
+
+        // API.createPost(newPost);
+
+
+        // this.setState(
+        //     {
+        //         title: "", text: "", category: ""
+        //     }
+        // )
+
+
     }
 
-   
+
 
     render() {
         return (
@@ -66,6 +82,12 @@ class Forum extends Component {
                         onChange={this.handleInputChange}
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
+
+                    {this.state.submittedComment.length ? (
+                        <div data-aos="flip-up">{this.state.submittedComment.map(singleComment => (
+                            <Card post={singleComment} />
+                        ))}</div>
+                    ) : null}
                 </form>
             </div>
         );
