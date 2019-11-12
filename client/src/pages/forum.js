@@ -1,21 +1,8 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import { Card } from '../components/Card/index';
+import  Card  from '../components/Card';
 import { makeStyles } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
 
-// const useStyles = makeStyles(theme => ({
-
-//     container: {
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//     },
-//     textField: {
-//         marginLeft: theme.spacing(1),
-//         marginRight: theme.spacing(1),
-//         width: 200,
-//     },
-// }));
 
 
 class Forum extends Component {
@@ -56,34 +43,14 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-
         const newPost = { 
             author: this.state.author,
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
-            
-        
         }
         console.log(newPost);
-        // axios
-
-        // connecting to utils to create a post.
-        // let newQuestion = this.state.submittedQuestion;
-        // newQuestion.unshift(this.state.text);
-        // let newCategory = this.state.categoryArray;
-        // newCategory.unshift(this.state.category);
-        // this.setState({
-        //     submittedQuestion: newQuestion,
-        //     categoryArray: newCategory,
-        //     text: "",
-        //     category: "",
-
-        // });
-
         API.createPost(newPost);
-
-
         this.setState(
             {
                 title: "",
@@ -91,8 +58,6 @@ class Forum extends Component {
                 category: ""
             }
         )
-
-
     }
 
 
@@ -142,7 +107,8 @@ class Forum extends Component {
                                 <Card post={post.text} 
                                 title = {post.title} 
                                 author={post.author}
-                                category={post.category}/>
+                                category={post.category}
+                                card = {Card}/>
                             ))}
                             </div>
                  
