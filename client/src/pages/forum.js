@@ -1,14 +1,31 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
 import { Card } from '../components/Card/index';
+// import { makeStyles } from '@material-ui/core/styles';
+// import TextField from '@material-ui/core/TextField';
+
+// const useStyles = makeStyles(theme => ({
+
+//     container: {
+//         display: 'flex',
+//         flexWrap: 'wrap',
+//     },
+//     textField: {
+//         marginLeft: theme.spacing(1),
+//         marginRight: theme.spacing(1),
+//         width: 200,
+//     },
+// }));
 
 
 class Forum extends Component {
     state = {
-        title: "",
+        // title: "",
         text: "",
         category: "",
-        submittedComment: []
+        submittedComment: [],
+        categoryArray: []
+
     };
 
     handleInputChange = e => {
@@ -19,15 +36,12 @@ class Forum extends Component {
         this.setState({
             [name]: value
         })
-
-
-    }
+ }
 
     handleFormSubmit = e => {
         e.preventDefault();
 
         const newPost = {
-            title: this.state.title,
             text: this.state.text,
             category: this.state.category
         }
@@ -37,9 +51,11 @@ class Forum extends Component {
         // connecting to utils to create a post.
         let newComments = this.state.submittedComment;
         newComments.unshift(this.state.text);
+        let newCategory = this.state.categoryArray;
+        newCategory.unshift(this.state.category);
         this.setState({
             submittedComment: newComments,
-            title: "",
+            categoryArray: newCategory,
             text: "",
             category: "",
 
@@ -60,15 +76,22 @@ class Forum extends Component {
 
 
     render() {
+        // const classes = useStyles();
         return (
             <div>
-                <form>
-                    <input
-                        name="title"
-                        type="text"
-                        value={this.state.title}
-                        onChange={this.handleInputChange}
-                        placeholder="title" />
+                <form 
+                // className={classes.container}
+                
+                >
+                    {/* <div>
+                        <TextField
+                            id="standard-basic"
+                            className={classes.textField}
+                            label="Standard"
+                            margin="normal"
+                        />
+                    </div> */}
+
                     <input
                         name="text"
                         type="text"
@@ -84,10 +107,13 @@ class Forum extends Component {
                     <button onClick={this.handleFormSubmit}>Submit</button>
 
                     {this.state.submittedComment.length ? (
-                        <div data-aos="flip-up">{this.state.submittedComment.map(singleComment => (
-                            <Card post={singleComment} />
-                        ))}</div>
+                        <div data-aos="flip-up">
+                            {this.state.submittedComment.map(singleComment => (
+                                <Card post={singleComment} />
+                            ))}</div>
                     ) : null}
+
+
                 </form>
             </div>
         );
