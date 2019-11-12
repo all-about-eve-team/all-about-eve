@@ -8,6 +8,7 @@ import Navbar from './pages/navbar'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import Period from "./pages/period"
+import ContactUs from './pages/contactus';
 
 class App extends Component {
   constructor() {
@@ -96,6 +97,11 @@ componentDidMount() {
           render={() =>
             <Signup />}
         />
+        <Route
+        path="/contactus"
+        render={() =>
+          <ContactUs />}
+          />
 
       </div>
     );
