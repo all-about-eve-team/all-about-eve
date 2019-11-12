@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../../utils/API"
 import "./style.css";
 import "../Comment";
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -47,23 +49,35 @@ class Card extends Component {
     render() {
         return (
             <div className="card" >
-                <h1>{this.props.title}</h1>
-                <ul>
-                    <li>{this.props.post}</li>
-                    {/* <li>{this.props.author}</li> */}
-                    <li>{this.props.category}</li>
-                    <li>{this.props.comments}</li>
-                </ul>
+                <h4>Question: {this.props.title}</h4>
+                {/* <ul> */}
+                Comment: {this.props.post}
+                <br></br>
+                {/* <li>{this.props.author}</li> */}
+                Category: {this.props.category}
+                <br></br>
+                {/* Comment:{this.props.comments} */}
+                {/* </ul> */}
+                <br></br>
+                <Accordion defaultActiveKey="0">
                 <form>
-                    <input
-                        name="comment"
-                        type="text"
-                        // value={this.state.comment}
-                        placeholder="Comment here!">
-                    </input>
-                    <button onClick={this.handleFormSubmit}>Submit!</button>
-                </form>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        Click me to add a comment!
+      </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="1">
+                        <div>
+                            <input
+                                name="comment"
+                                type="text"
+                                // value={this.state.comment}
+                                placeholder="Comment here!">
+                            </input>
+                            <button onClick={this.handleFormSubmit}>Submit!</button>
+                        </div>
+                    </Accordion.Collapse>
 
+                </form>
+                </Accordion>
             </div>
 
 
