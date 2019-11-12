@@ -8,7 +8,8 @@ import "../Comment";
 class Card extends Component {
     state = {
         comment: "",
-        author: this.author
+        // userID: 
+        // // author: this.author
 
     }
     componentDidMount() {
@@ -25,14 +26,13 @@ class Card extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
         const newComment = {
-            author: this.state.author,
             text: this.state.comment,
         }
-        console.log(newComment);
+        // console.log(newComment);
         API.createComment(newComment);
         this.setState(
             {
-                text: "",
+                comment: "",
             }
         )
     }
@@ -47,11 +47,12 @@ class Card extends Component {
     render() {
         return (
             <div className="card" >
+                <h1>{this.props.title}</h1>
                 <ul>
-                    <li>{this.props.title}</li>
                     <li>{this.props.post}</li>
-                    <li>{this.props.author}</li>
+                    {/* <li>{this.props.author}</li> */}
                     <li>{this.props.category}</li>
+                    <li>{this.props.comments}</li>
                 </ul>
                 <form>
                     <input
@@ -69,5 +70,4 @@ class Card extends Component {
         )
     }
 }
-
 export default Card

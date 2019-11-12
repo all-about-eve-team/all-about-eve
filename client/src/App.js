@@ -23,6 +23,7 @@ class App extends Component {
     this.updateUser = this.updateUser.bind(this)
   }
 //nora commented the below out for testing
+
 componentDidMount() {
   this.getUser()
 }
