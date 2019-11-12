@@ -35,6 +35,7 @@ class Period extends Component {
         e.preventDefault();
 
         const newPeriodPost = {
+            
             title: this.state.title,
             image: this.state.image,
             productCategory: this.state.productCategory

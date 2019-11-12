@@ -1,11 +1,42 @@
-import React from "react";
+import React, {Component} from "react";
 import PeriodProductImage from "../PeriodProductImage"
 import PeriodComment from "../PeriodComment"
 import "./style.css"
 
 //need to add state so i can handle the inputs and also the submit button
-const PeriodPostWrapper = props => {
-  console.log(props.posts)
+class Period extends Component {
+  state{
+
+  }
+  componentDidMount(){
+
+  }
+  handleInputChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+        [name]: value
+    })
+}
+
+handleFormSubmit = e => {
+    e.preventDefault();
+
+    const newPeriodComment = {
+        title: this.state.title,
+        image: this.state.image,
+        productCategory: this.state.productCategory
+    }
+
+    // connecting to utils to create a post.
+    API.createPeriodPost(newPeriodPost);
+
+    this.setState(
+        {
+            title: "", productCategory: "", image: ""
+        }
+    )
+}
+  render(){
   return (
     <div className="container">
       {props.posts.map(post => (
@@ -31,5 +62,7 @@ const PeriodPostWrapper = props => {
       ))}
     </div>
       )}
+}
+      
 export default PeriodPostWrapper;
 
