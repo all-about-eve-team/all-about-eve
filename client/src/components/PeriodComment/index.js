@@ -3,12 +3,12 @@ import React from "react"
 
 const PeriodComment = props => {
 return(
-    <ul>
+    <div className="card-text">
         {props.comments.map(comment=>(
-            // <li>{comment}</li>
-            <li>test</li>
+            // need author of comment
+        <p>{comment}</p>
        ))}
-    </ul>
+    </div>
 )
 }
 export default PeriodComment;
