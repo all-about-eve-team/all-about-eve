@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
 import { Card } from '../components/Card/index';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 // import TextField from '@material-ui/core/TextField';
 
 // const useStyles = makeStyles(theme => ({
@@ -20,12 +20,28 @@ import { Card } from '../components/Card/index';
 
 class Forum extends Component {
     state = {
-        // title: "",
+        title: "",
         text: "",
         category: "",
-        submittedComment: [],
-        categoryArray: []
+        author: this.props.username,
+        submittedQuestion: [],
+        // categoryArray: []
+        
 
+    };
+
+    // console.log("author: "+ author);
+    
+
+    componentDidMount() {
+        API.getPost()
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    submittedQuestion: res.data
+                })
+            })
+            .catch(err => console.log(err));
     };
 
     handleInputChange = e => {
@@ -36,39 +52,45 @@ class Forum extends Component {
         this.setState({
             [name]: value
         })
- }
+    };
 
     handleFormSubmit = e => {
         e.preventDefault();
 
-        const newPost = {
+        const newPost = { 
+            author: this.state.author,
+            title: this.state.title,
             text: this.state.text,
-            category: this.state.category
+            category: this.state.category,
+            
+        
         }
         console.log(newPost);
         // axios
 
         // connecting to utils to create a post.
-        let newComments = this.state.submittedComment;
-        newComments.unshift(this.state.text);
-        let newCategory = this.state.categoryArray;
-        newCategory.unshift(this.state.category);
-        this.setState({
-            submittedComment: newComments,
-            categoryArray: newCategory,
-            text: "",
-            category: "",
+        // let newQuestion = this.state.submittedQuestion;
+        // newQuestion.unshift(this.state.text);
+        // let newCategory = this.state.categoryArray;
+        // newCategory.unshift(this.state.category);
+        // this.setState({
+        //     submittedQuestion: newQuestion,
+        //     categoryArray: newCategory,
+        //     text: "",
+        //     category: "",
 
-        });
+        // });
 
-        // API.createPost(newPost);
+        API.createPost(newPost);
 
 
-        // this.setState(
-        //     {
-        //         title: "", text: "", category: ""
-        //     }
-        // )
+        this.setState(
+            {
+                title: "",
+                text: "",
+                category: ""
+            }
+        )
 
 
     }
@@ -79,9 +101,10 @@ class Forum extends Component {
         // const classes = useStyles();
         return (
             <div>
-                <form 
+                testing{this.props.username}
+                <form
                 // className={classes.container}
-                
+
                 >
                     {/* <div>
                         <TextField
@@ -91,6 +114,12 @@ class Forum extends Component {
                             margin="normal"
                         />
                     </div> */}
+                    <input
+                        name="title"
+                        type="text"
+                        value={this.state.title}
+                        onChange={this.handleInputChange}
+                        placeholder="Question" />
 
                     <input
                         name="text"
@@ -98,6 +127,7 @@ class Forum extends Component {
                         value={this.state.text}
                         onChange={this.handleInputChange}
                         placeholder="text" />
+
                     <input
                         name="category"
                         type="text"
@@ -106,15 +136,17 @@ class Forum extends Component {
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
 
-                    {this.state.submittedComment.length ? (
-                        <div data-aos="flip-up">
-                            {this.state.submittedComment.map(singleComment => (
-                                <Card post={singleComment} />
-                            ))}</div>
-                    ) : null}
-
-
-                </form>
+                     </form>
+                        <div>
+                            {this.state.submittedQuestion.map(post => (
+                                <Card post={post.text} 
+                                title = {post.title} 
+                                author={post.author}
+                                category={post.category}/>
+                            ))}
+                            </div>
+                 
+               
             </div>
         );
     }

@@ -5,7 +5,11 @@ export function Card(props) {
     return (
         <div className="card" >
             <br></br>
-            <p> Comment: {props.post}</p>
+            <p> {props.post}</p>
+            <p> {props.title}</p>
+            <p> {props.author}</p>
+            <p> {props.category}</p>
+           
         </div>
 
    
