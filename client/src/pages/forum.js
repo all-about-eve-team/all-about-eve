@@ -10,7 +10,11 @@ class Forum extends Component {
         title: "",
         text: "",
         category: "",
+<<<<<<< HEAD
         author: this.props.username,
+=======
+        // author: this.props.username,
+>>>>>>> master
         submittedQuestion: [],
         // categoryArray: []
         
@@ -44,7 +48,11 @@ class Forum extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
         const newPost = { 
+<<<<<<< HEAD
             author: this.state.author,
+=======
+            // // author: this.state.author,
+>>>>>>> master
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
@@ -106,7 +114,11 @@ class Forum extends Component {
                             {this.state.submittedQuestion.map(post => (
                                 <Card post={post.text} 
                                 title = {post.title} 
+<<<<<<< HEAD
                                 author={post.author}
+=======
+                                // // author={post.author}
+>>>>>>> master
                                 category={post.category}
                                 card = {Card}/>
                             ))}
