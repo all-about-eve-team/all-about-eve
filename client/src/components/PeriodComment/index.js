@@ -1,11 +1,14 @@
 import React from "react"
-function PeriodComment(props){
+
+
+const PeriodComment = props => {
 return(
     <ul>
         {props.comments.map(comment=>(
-            <li>{comment}</li>
+            // <li>{comment}</li>
+            <li>test</li>
        ))}
     </ul>
 )
 }
-export default PeriodComment
+export default PeriodComment;

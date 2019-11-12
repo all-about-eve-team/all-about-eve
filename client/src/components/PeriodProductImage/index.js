@@ -1,6 +1,7 @@
 import React from "react";
+import "./style.css"
 
-function PeriodProductImage(props) {
+const PeriodProductImage = props => {
     return(
         <img src={props.image} alt={props.title}></img>
     )
