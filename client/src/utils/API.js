@@ -15,5 +15,13 @@ export default {
     getPeriodPost: function(){
         console.log("api get route is getting hit")
         return axios.get("/api/periodposts/")
+    },
+    createComment: function(postData){
+        return axios.post("/api/comments", postData)
+    },
+    getComment: function(){
+        return axios.get("/api/comments")
     }
+
+
 }
