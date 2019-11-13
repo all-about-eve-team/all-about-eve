@@ -8,6 +8,9 @@ import Navbar from './pages/navbar'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import Period from "./pages/period"
+import API from './utils/API';
+
+// need to see when getuser is getting called
 
 class App extends Component {
   constructor() {
@@ -23,8 +26,11 @@ class App extends Component {
     this.updateUser = this.updateUser.bind(this)
   }
 //nora commented the below out for testing
+
 componentDidMount() {
-  this.getUser()
+  console.log("running getUser below")
+  //nora commenting getuser out for now
+  // this.getUser()
 }
 
   updateUser(userObject) {
@@ -35,7 +41,8 @@ componentDidMount() {
 
   getUser() {
     console.log("get user got called")
-    //nora added this.state.username below
+  //  API.getUser(this.state.username).then(response=>{
+    //nora commenting out the above for a test 
     axios.get('/user/'+this.state.username).then(response => {
       console.log('Get user response: ')
       console.log(response.data)
@@ -63,6 +70,7 @@ componentDidMount() {
   
 
   render() {
+    // this.getUser()
     return (
       <div className="App">
 {/* nora added user prop to navbar */}
@@ -77,7 +85,7 @@ componentDidMount() {
           component={Home} />
         <Route
           exact path="/forum"
-          render={(props) => <Forum {...props} loggedIn={this.state.loggedIn} username={this.state.username}/>}
+          render={(props) => <Forum {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username}/>}
           />
           <Route
           exact path="/period"
