@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import  Card  from '../components/Card';
+import Card from '../components/Card';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -10,15 +10,10 @@ class Forum extends Component {
         title: "",
         text: "",
         category: "",
-        // author: this.props.username,
+        //need this to be user ID > this.props.username.getuser? or something like that?
+        author: this.props.username,
         submittedQuestion: [],
-        // categoryArray: []
-        
-
     };
-
-    // console.log("author: "+ author);
-    
 
     componentDidMount() {
         API.getPost()
@@ -32,10 +27,7 @@ class Forum extends Component {
     };
 
     handleInputChange = e => {
-        // console.log("working");
-        // console.log(e.target);
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
@@ -43,8 +35,9 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const newPost = { 
-            // // author: this.state.author,
+        const newPost = {
+            // hardcoding the author to test
+            author: "5dc6ef3e18e947460875d005",
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
@@ -58,19 +51,16 @@ class Forum extends Component {
                 category: ""
             }
         )
+        // need a way to reload the page with the new post without logging the user out
     }
-
-
 
     render() {
         // const classes = useStyles();
         return (
             <div>
-                testing{this.props.username}
-                <form
-                // className={classes.container}
-
-                >
+                <form>
+                    {/* // className={classes.container}
+                > */}
                     {/* <div>
                         <TextField
                             id="standard-basic"
@@ -100,19 +90,16 @@ class Forum extends Component {
                         onChange={this.handleInputChange}
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
-
-                     </form>
-                        <div>
-                            {this.state.submittedQuestion.map(post => (
-                                <Card post={post.text} 
-                                title = {post.title} 
-                                // // author={post.author}
-                                category={post.category}
-                                card = {Card}/>
-                            ))}
-                            </div>
-                 
-               
+                </form>
+                <div>
+                    {this.state.submittedQuestion.map(post => (
+                        <Card post={post.text}
+                            title={post.title}
+                            author={post.author}
+                            category={post.category}
+                            card={Card} />
+                    ))}
+                </div>
             </div>
         );
     }

@@ -10,16 +10,18 @@ import Button from 'react-bootstrap/Button'
 class Card extends Component {
     state = {
         comment: "",
-        // userID: 
-        // // author: this.author
-
+        author: this.props.author,
+        // hardcoding with a post id to check functionality
+        post: "5dcb5cdc5fff754f7c8cc27f",
+        // pull in associated comments
+        allComments: []
     }
     componentDidMount() {
         API.getComment()
             .then(res => {
                 console.log(res)
                 this.setState({
-                    comment: res.data
+                    allComment: res.data
                 })
             })
             .catch(err => console.log(err));
@@ -29,8 +31,11 @@ class Card extends Component {
         e.preventDefault();
         const newComment = {
             text: this.state.comment,
+            author: this.state.author,
+            post: this.state.post
         }
-        // console.log(newComment);
+        console.log("comment: ")
+        console.log(newComment)
         API.createComment(newComment);
         this.setState(
             {
@@ -69,7 +74,8 @@ class Card extends Component {
                             <input
                                 name="comment"
                                 type="text"
-                                // value={this.state.comment}
+                                value={this.state.comment}
+                                onChange={this.handleInputChange}
                                 placeholder="Comment here!">
                             </input>
                             <button onClick={this.handleFormSubmit}>Submit!</button>
