@@ -55,9 +55,21 @@ router.get('/', (req, res, next) => {
     console.log(req.user)
     if (req.user) {
         res.json({ user: req.user })
+        console.log("user get route getting hit")
     } else {
         res.json({ user: null })
     }
+})
+
+//nora playing around with this route
+router.get("/:name", (req,res)=>{
+    console.log("guess what my wacky route is getting hit")
+    User.findOne({username: req.params.name}, "_id")
+    .then(dbModel => {
+        res.json(dbModel)
+        console.log(res.json(dbModel))
+    })
+    .catch(err => res.status(422).json(err));
 })
 
 router.post('/logout', (req, res) => {

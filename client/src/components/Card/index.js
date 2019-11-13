@@ -5,7 +5,7 @@ import "../Comment";
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
 
-
+//have to figure out how to pass the specific post id
 
 class Card extends Component {
     state = {
@@ -14,17 +14,25 @@ class Card extends Component {
         // hardcoding with a post id to check functionality
         post: "5dcb5cdc5fff754f7c8cc27f",
         // pull in associated comments
-        allComments: []
+        allComments: [],
+        authorid: ""
     }
     componentDidMount() {
-        API.getComment()
+        console.log(this.state.author)
+        API.getPost()
             .then(res => {
                 console.log(res)
                 this.setState({
-                    allComment: res.data
+                    allComments: res.data.comments
                 })
             })
             .catch(err => console.log(err));
+        API.getUser("evie")
+        .then(res=>{
+            console.log(res)
+            this.setState({authorid: res.data._id})
+        }).catch(err=>console.log(err))
+        console.log(this.state.authorid)
     };
 
     handleFormSubmit = e => {
@@ -64,6 +72,9 @@ class Card extends Component {
                 {/* Comment:{this.props.comments} */}
                 {/* </ul> */}
                 <br></br>
+                <div>Comments will populate here:
+                    {this.state.allComments}
+                </div>
                 <Accordion defaultActiveKey="0">
                 <form>
                     <Accordion.Toggle as={Button} variant="link" eventKey="1">

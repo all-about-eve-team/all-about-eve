@@ -8,6 +8,7 @@ import Navbar from './pages/navbar'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import Period from "./pages/period"
+import API from './utils/API';
 
 class App extends Component {
   constructor() {
@@ -25,6 +26,7 @@ class App extends Component {
 //nora commented the below out for testing
 
 componentDidMount() {
+  console.log("running getUser below")
   this.getUser()
 }
 
@@ -36,8 +38,9 @@ componentDidMount() {
 
   getUser() {
     console.log("get user got called")
-    //nora added this.state.username below
-    axios.get('/user/'+this.state.username).then(response => {
+   API.getUser(this.state.username).then(response=>{
+    //nora commenting out the below for a test (and added the above)
+    // axios.get('/user/'+this.state.username).then(response => {
       console.log('Get user response: ')
       console.log(response.data)
       if (response.data.user) {
@@ -64,6 +67,7 @@ componentDidMount() {
   
 
   render() {
+    // this.getUser()
     return (
       <div className="App">
 {/* nora added user prop to navbar */}
