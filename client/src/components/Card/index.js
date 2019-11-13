@@ -6,10 +6,6 @@ import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button';
 import { InputGroup, FormControl } from 'react-bootstrap';
 
-// import { Collapsible, CollapsibleItem } from 'react-materialize';
-
-
-
 class Card extends Component {
     state = {
         comment: "",
@@ -33,7 +29,6 @@ class Card extends Component {
         const newComment = {
             text: this.state.comment,
         }
-        // console.log(newComment);
         API.createComment(newComment);
         this.setState(
             {
@@ -61,39 +56,23 @@ class Card extends Component {
                 <br></br>
                 {/* Comment:{this.props.comments} */}
                 {/* </ul> */}
-
                 <br></br>
-                <Accordion
-                // defaultActiveKey="0"
-
-                >
+                <Accordion>
                     <Accordion.Toggle as={Button} variant="link" eventKey="0">
-
-                        {/* <Collapsible accordion={false} >
-
-                    <CollapsibleItem header="Better safe than sorry. That's my motto."> */}
                         Click me to see comments!
-                        {/* </CollapsibleItem>
-                </Collapsible> */}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
-
-
                     </Accordion.Collapse>
-
-
-                    <form>
+                  <form>
                         <Accordion.Toggle as={Button} variant="link" eventKey="1">
                             Click me to add a comment!
       </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <div>
-                                
                                 <InputGroup className="mb-3">
-                                    
                                     <FormControl aria-describedby="basic-addon1" name="comment"
                                     type="text"
                                     placeholder="Comment here!"/>
@@ -101,14 +80,9 @@ class Card extends Component {
                                 </InputGroup>
                             </div>
                         </Accordion.Collapse>
-
-                    </form>
+ </form>
                 </Accordion>
-
-
-            </div>
-
-
+</div>
         )
     }
 }

@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import  Card  from '../components/Card';
-import { makeStyles } from '@material-ui/core/styles';
+import Card from '../components/Card';
+// import { makeStyles } from '@material-ui/core/styles';
+// import { FormControl } from 'react-bootstrap';
+import { InputGroup, FormControl } from 'react-bootstrap';
+
+
 
 
 
@@ -13,12 +17,12 @@ class Forum extends Component {
         // author: this.props.username,
         submittedQuestion: [],
         // categoryArray: []
-        
+
 
     };
 
     // console.log("author: "+ author);
-    
+
 
     componentDidMount() {
         API.getPost()
@@ -43,7 +47,7 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const newPost = { 
+        const newPost = {
             // // author: this.state.author,
             title: this.state.title,
             text: this.state.text,
@@ -65,54 +69,47 @@ class Forum extends Component {
     render() {
         // const classes = useStyles();
         return (
-            <div>
-                testing{this.props.username}
-                <form
-                // className={classes.container}
+            <div id="input-question">
+                {this.props.username}
+                <form>
 
-                >
-                    {/* <div>
-                        <TextField
-                            id="standard-basic"
-                            className={classes.textField}
-                            label="Standard"
-                            margin="normal"
-                        />
-                    </div> */}
-                    <input
-                        name="title"
-                        type="text"
-                        value={this.state.title}
-                        onChange={this.handleInputChange}
-                        placeholder="Question" />
+                    <InputGroup className="mb-3">
 
-                    <input
-                        name="text"
-                        type="text"
-                        value={this.state.text}
-                        onChange={this.handleInputChange}
-                        placeholder="text" />
+                        <FormControl
+                            name="title"
+                            type="text"
+                            value={this.state.title}
+                            onChange={this.handleInputChange}
+                            placeholder="Question" />
 
-                    <input
-                        name="category"
-                        type="text"
-                        value={this.state.category}
-                        onChange={this.handleInputChange}
-                        placeholder="category" />
-                    <button onClick={this.handleFormSubmit}>Submit</button>
 
-                     </form>
-                        <div>
-                            {this.state.submittedQuestion.map(post => (
-                                <Card post={post.text} 
-                                title = {post.title} 
-                                // // author={post.author}
-                                category={post.category}
-                                card = {Card}/>
-                            ))}
-                            </div>
-                 
-               
+                        <FormControl
+                            name="text"
+                            type="text"
+                            value={this.state.text}
+                            onChange={this.handleInputChange}
+                            placeholder="text" />
+
+                        <FormControl
+                            name="category"
+                            type="text"
+                            value={this.state.category}
+                            onChange={this.handleInputChange}
+                            placeholder="category" />
+                        <button onClick={this.handleFormSubmit}>Submit</button>
+                    </InputGroup>
+                </form>
+                <div>
+                    {this.state.submittedQuestion.map(post => (
+                        <Card post={post.text}
+                            title={post.title}
+                            // // author={post.author}
+                            category={post.category}
+                            card={Card} />
+                    ))}
+                </div>
+
+
             </div>
         );
     }
