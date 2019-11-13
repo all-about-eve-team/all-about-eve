@@ -21,6 +21,9 @@ export default {
     },
     getComment: function(){
         return axios.get("/api/comments")
+    },
+    getUser: function(){
+        return axios.get("/user")
     }
 
 
