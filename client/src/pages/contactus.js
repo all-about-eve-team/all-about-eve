@@ -1,4 +1,4 @@
-import React, { Component, Input, Container, Row, Col, Jumbotron, TextArea, List, ListItem, DeleteBtn, FormBtn } from "react"
+import React, { Component } from "react"
 import Form from "../components/Form"
 import axios from "axios"
 import "./contact.css"
@@ -13,7 +13,7 @@ class ContactUs extends Component {
         message:""
 
     }
-handleOnChange = (event) =>{
+handleInputChange = (event) =>{
     const {name,value}=event.target
     this.setState({
         [name]:value
@@ -22,13 +22,19 @@ console.log(name, value);
 }
 handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+   axios.post("http://localhost:8080/api/contactus")
+    .then(response => console.log (response))
+    .catch(error => console.log (error));
+    
 }
     render() {
         return (
           <div>
-            <Form />
-            <Container fluid>
+            <Form handleInputChange={this.handleInputChange} 
+            handleFormSubmit={this.handleFormSubmit}
+            />
+
+            {/* <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
@@ -80,7 +86,7 @@ handleFormSubmit = event => {
             </form>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 </div>
         );
     }

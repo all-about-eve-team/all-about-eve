@@ -13,6 +13,7 @@ function Form(props) {
                                 <p>
                                     <label>Name</label>
                                     <input
+                                        name="name"
                                         type="text"
                                         value={props.name}
                                         placeholder="name"
@@ -24,6 +25,7 @@ function Form(props) {
                                 <p>
                                     <label>Company</label>
                                     <input
+                                        name="company"
                                         type="text"
                                         value={props.company}
                                         placeholder="company"
@@ -36,6 +38,7 @@ function Form(props) {
                                 <p>
                                     <label> Email Address</label>
                                     <input
+                                        name="email"
                                         type="text"
                                         value={props.email}
                                         placeholder="email"
@@ -48,6 +51,7 @@ function Form(props) {
                                 <p>
                                     <label>Phone Number</label>
                                     <input
+                                        name="phone"
                                         type="number"
                                         value={props.phone}
                                         placeholder="phone"
@@ -60,6 +64,7 @@ function Form(props) {
                                 <p class="full">
                                     <label>Message</label>
                                     <textarea 
+                                    name="message"
                                     type="message"
                                     rows="5"
                                     value={props.phone}
