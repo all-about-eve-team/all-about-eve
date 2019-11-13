@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
 import Card from '../components/Card';
+import Question from "../components/Question"
+import QuestionComment from "../components/QuestionComment"
 import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles';
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
 
 class Forum extends Component {
     state = {
@@ -13,7 +17,8 @@ class Forum extends Component {
         author: this.props.username,
         authorid: "",
         submittedQuestion: [],
-        questionid: ""
+        questionid: "",
+        commenttext: ""
     };
 
     componentDidMount() {
@@ -29,9 +34,11 @@ class Forum extends Component {
         API.getPost()
             .then(res => {
                 console.log(res)
+                console.log(res.data[0].comments)
                 this.setState({
                     submittedQuestion: res.data
                 })
+                console.log(this.state)
             })
             .catch(err => console.log(err));
     };
@@ -45,7 +52,7 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        
+
         const newPost = {
             author: this.state.authorid,
             title: this.state.title,
@@ -55,7 +62,7 @@ class Forum extends Component {
         console.log(newPost);
         API.createPost(newPost)
         // below I've got to hardcode this in order for it to work -- need to find a way to immediately have the post _id grabbable when i run the below call
-        .then(API.updateUserPost(newPost.author, "5dcbc3e13ecd8339805eb78d"))
+        // .then(API.updateUserPost(newPost.author, "5dcbc3e13ecd8339805eb78d"))
         this.setState(
             {
                 title: "",
@@ -66,9 +73,29 @@ class Forum extends Component {
         // need a way to reload the page with the new post without logging the user out
     }
 
+    handleCommentSubmit = e => {
+        e.preventDefault();
+        const newComment = {
+            text: this.state.commenttext,
+            author: this.state.author,
+            post: this.state.post_id
+        }
+        console.log("comment: ")
+        console.log(newComment.post)
+        API.createComment(newComment)
+            .then(API.updatePost(newComment))
+            //hardcoding the comment id until i figure out how to dynamically grab it
+            .then(API.updateUserComment(this.state.author, this.state.post))
+        this.setState(
+            {
+                commenttext: "",
+            }
+        )
+    }
+
     render() {
         // const classes = useStyles();
-        
+
         return (
             <div>
                 <form>
@@ -106,11 +133,26 @@ class Forum extends Component {
                 </form>
                 <div>
                     {this.state.submittedQuestion.map(post => (
-                        <Card post={post.text}
+                        <div>
+                        <Question post={post.text}
                             title={post.title}
-                            author={post.author}
+                            author={this.state.author}
                             category={post.category}
-                            card={Card} />
+                            comments={post.comments.map(comment => (
+                                <QuestionComment text={comment.text} author={comment.author} />
+                            ))}
+                        />
+                        <form>
+                        <input
+                            name="commenttext"
+                            type="text"
+                            value={this.state.commenttext}
+                            onChange={this.handleInputChange}
+                            placeholder="Comment here!">
+                        </input>
+                        <button onClick={this.handleCommentSubmit}>Submit!</button>
+                    </form>
+                    </div>
                     ))}
                 </div>
             </div>
@@ -119,3 +161,5 @@ class Forum extends Component {
 }
 
 export default Forum
+
+

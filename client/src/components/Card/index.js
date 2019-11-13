@@ -12,7 +12,7 @@ class Card extends Component {
     state = {
         comment: "",
         // hardcoding with a post id to check functionality
-        post: "5dcba4a28a525f449c5e756f",
+        post: "",
         // pull in associated comments
         allComments: [],
         author: this.props.author
@@ -22,8 +22,10 @@ class Card extends Component {
             .then(res => {
                 console.log(res.data.comments)
                 this.setState({
-                    allComments: res.data.comments
+                    allComments: res.data.comments,
+                    post: res.data._id
                 })
+                // console.log(this.state)
             })
             .catch(err => console.log(err));
         
@@ -41,7 +43,7 @@ class Card extends Component {
         API.createComment(newComment)
         .then(API.updatePost(newComment))
         //hardcoding the comment id until i figure out how to dynamically grab it
-        .then(API.updateUserComment(this.state.author, "5dcbb56e81575e441033d43d"))
+        .then(API.updateUserComment(this.state.author, this.state.post))
         this.setState(
             {
                 comment: "",
@@ -70,9 +72,9 @@ class Card extends Component {
                 {/* </ul> */}
                 <br></br>
                 <div>Comments will populate here:
-                {this.state.allComments.map(comment => (
-                        <Comment comment={comment.text}/>
-                    ))}
+                
+                        <Comment onClick={this.handleFormSubmit}/>
+                   
                 </div>
                 <Accordion defaultActiveKey="0">
                 <form>
