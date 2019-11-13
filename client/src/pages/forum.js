@@ -5,10 +5,6 @@ import Card from '../components/Card';
 // import { FormControl } from 'react-bootstrap';
 import { InputGroup, FormControl } from 'react-bootstrap';
 
-
-
-
-
 class Forum extends Component {
     state = {
         title: "",
