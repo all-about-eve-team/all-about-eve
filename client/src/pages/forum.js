@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
 import Card from '../components/Card';
+
 // import { makeStyles } from '@material-ui/core/styles';
 // import { FormControl } from 'react-bootstrap';
-import { InputGroup, FormControl } from 'react-bootstrap';
+import { InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap';
 
 class Forum extends Component {
     state = {
@@ -16,9 +17,6 @@ class Forum extends Component {
 
 
     };
-
-    // console.log("author: "+ author);
-
 
     componentDidMount() {
         API.getPost()
@@ -59,10 +57,7 @@ class Forum extends Component {
             }
         )
     }
-
-
-
-    render() {
+ render() {
         // const classes = useStyles();
         return (
             <div id="input-question">
@@ -86,12 +81,17 @@ class Forum extends Component {
                             onChange={this.handleInputChange}
                             placeholder="text" />
 
-                        <FormControl
+                        {/* <FormControl
                             name="category"
                             type="text"
                             value={this.state.category}
                             onChange={this.handleInputChange}
-                            placeholder="category" />
+                            placeholder="category" /> */}
+                        <DropdownButton id="dropdown-basic-button" title="Category" name="category">
+                            <Dropdown.Item href="#/action-1">Tag 1</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Tag 2</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Tag 3</Dropdown.Item>
+                        </DropdownButton>
                         <button onClick={this.handleFormSubmit}>Submit</button>
                     </InputGroup>
                 </form>

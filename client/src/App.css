@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #FFF4F4;
+  color: #442C2E;
 }
 
 .App-logo {
@@ -8,7 +10,7 @@
 }
 
 .App-header {
-  background-color: blue;
+  /* background-color: blue; */
   height: 150px;
   padding: 20px;
   color: white;
@@ -23,7 +25,8 @@
 }
 
 body {
-background-color: #FEEAE6;
+/* background-color: #FEEAE6; */
+
 }
 
 .navbar {
@@ -31,17 +34,15 @@ background-color: #FEEAE6;
   margin-top: auto;
   
 }
-#menu-text{
-  color:#442c2e
-}
+
 #top-filler {
   margin-bottom: auto;
 }
 
 #nav-container {
   align-items: flex-end;
-  background-color: #FEDBD0;
-  color: #442C2E;
+   background-color: #FEDBD0;
+  color: #442C2E; 
 }
 
 @keyframes App-logo-spin {
@@ -57,8 +58,8 @@ background-color: #FEEAE6;
 body, html {
   height: 100%;
   margin: 0;
-  font: 400 15px/1.8 "Lato", sans-serif;
-  color: #777;
+  font-family: 'Rubik Medium', sans-serif;;
+  /* color: #442C2E; */
 }
 
 
@@ -83,8 +84,8 @@ body, html {
 }
 
 .caption .border {
-  background-color: gray;
-  color: #fff;
+  /* background-color: gray;
+  color: #fff; */
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
@@ -94,23 +95,31 @@ body, html {
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111111;
+  font-family: 'Rubik Medium', sans-serif;
+  /* color: #111111; */
   text-align:center;
 }
 
 .text {
-  color: #777777;
-  background-color: #ffffff;
+  /* color: #442C2E;
+  background-color: #FFF4F4; */
   text-align: center;
   padding: 50px 80px;
   text-align: justify;
+  font-family: 'Rubik Medium', sans-serif;
+
 }
 .react-parallax-content {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@font-face {
+  font-family: 'Rubik', sans-serif;;
+  src: url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
 }
 
 

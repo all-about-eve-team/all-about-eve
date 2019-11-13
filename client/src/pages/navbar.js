@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../App.css';
 import axios from 'axios';
-// import { Dropdown, Button } from 'react-materialize';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 class Navbar extends Component {
     constructor() {
@@ -52,19 +52,28 @@ class Navbar extends Component {
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    {/* <Dropdown trigger={<Button />}> */}
-                                    {/* <a href="#"> */}
+                                    <DropdownButton id="dropdown-basic-button" title="All About Eve" name="category">
+                                    <Dropdown.Item href="#/action-1">
+
                                         <Link to="/" className="btn btn-link text-secondary">
                                             <span className="text-secondary" id="menu-text">Home</span>
                                         </Link>
-                                    {/* </a> */}
-                                    {/* </Dropdown> */}
+                                        </Dropdown.Item>
+                                    
+                                        <Dropdown.Item href="#/action-2">
                                     <Link to="/login" className="btn btn-link text-secondary">
                                         <span className="text-secondary" id="menu-text">Login</span>
                                     </Link>
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+
                                     <Link to="/signup" className="btn btn-link">
                                         <span className="text-secondary" id="menu-text">Sign-up</span>
                                     </Link>
+                                    </Dropdown.Item>
+
+                                    
+                                    </DropdownButton>
                                 </section>
                             )}
                     </div>

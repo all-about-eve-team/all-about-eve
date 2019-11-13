@@ -1,11 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Rubik Medium';
+  /* background-color:   #FEEAE6; */
 }
 #input-question {
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 2%;
 
+}
+#dropdown-basic-button {
+  /* background-color: #FEEAE6; */
+  /* color: #442C2E; */
+  /* border-color: #FEEAE6 */
 }
