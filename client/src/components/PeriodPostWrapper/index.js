@@ -2,10 +2,11 @@ import React, {Component} from "react";
 import PeriodProductImage from "../PeriodProductImage"
 import PeriodComment from "../PeriodComment"
 import "./style.css"
+import API from "../../utils/API"
 
 //need to add state so i can handle the inputs and also the submit button
-class Period extends Component {
-  state{
+class PeriodPostWrapper extends Component {
+  state ={
 
   }
   componentDidMount(){
@@ -21,7 +22,7 @@ class Period extends Component {
 handleFormSubmit = e => {
     e.preventDefault();
 
-    const newPeriodComment = {
+    const newPeriodPost = {
         title: this.state.title,
         image: this.state.image,
         productCategory: this.state.productCategory
@@ -39,7 +40,7 @@ handleFormSubmit = e => {
   render(){
   return (
     <div className="container">
-      {props.posts.map(post => (
+      {this.posts.map(post => (
         <div className="card">
           <div className="card-header">
             {post.title}
