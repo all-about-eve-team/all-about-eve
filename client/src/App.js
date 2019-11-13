@@ -10,6 +10,8 @@ import Forum from "./pages/forum"
 import Period from "./pages/period"
 import API from './utils/API';
 
+// need to see when getuser is getting called
+
 class App extends Component {
   constructor() {
     super()
@@ -27,7 +29,8 @@ class App extends Component {
 
 componentDidMount() {
   console.log("running getUser below")
-  this.getUser()
+  //nora commenting getuser out for now
+  // this.getUser()
 }
 
   updateUser(userObject) {
@@ -38,9 +41,9 @@ componentDidMount() {
 
   getUser() {
     console.log("get user got called")
-   API.getUser(this.state.username).then(response=>{
-    //nora commenting out the below for a test (and added the above)
-    // axios.get('/user/'+this.state.username).then(response => {
+  //  API.getUser(this.state.username).then(response=>{
+    //nora commenting out the above for a test 
+    axios.get('/user/'+this.state.username).then(response => {
       console.log('Get user response: ')
       console.log(response.data)
       if (response.data.user) {
@@ -82,7 +85,7 @@ componentDidMount() {
           component={Home} />
         <Route
           exact path="/forum"
-          render={(props) => <Forum {...props} loggedIn={this.state.loggedIn} username={this.state.username}/>}
+          render={(props) => <Forum {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username}/>}
           />
           <Route
           exact path="/period"

@@ -27,12 +27,7 @@ class Card extends Component {
                 })
             })
             .catch(err => console.log(err));
-        API.getUser("evie")
-        .then(res=>{
-            console.log(res)
-            this.setState({authorid: res.data._id})
-        }).catch(err=>console.log(err))
-        console.log(this.state.authorid)
+        
     };
 
     handleFormSubmit = e => {

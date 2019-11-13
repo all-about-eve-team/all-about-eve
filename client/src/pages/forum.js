@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
 import Card from '../components/Card';
+import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -12,10 +13,20 @@ class Forum extends Component {
         category: "",
         //need this to be user ID > this.props.username.getuser? or something like that?
         author: this.props.username,
-        submittedQuestion: [],
+        authorid: "",
+        submittedQuestion: []
     };
 
     componentDidMount() {
+        console.log(this.state.author)
+        // this.props.getUser()
+        axios.get('/user/' + this.state.author).then(res => {
+            // .then(res=>{
+            console.log(res.data._id)
+            this.setState({ authorid: res.data._id })
+        }).catch(err => console.log(err))
+        // console.log(this.state.authorid)
+
         API.getPost()
             .then(res => {
                 console.log(res)
@@ -35,9 +46,10 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
+        
         const newPost = {
             // hardcoding the author to test
-            author: "5dc6ef3e18e947460875d005",
+            author: this.state.authorid,
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
@@ -56,6 +68,7 @@ class Forum extends Component {
 
     render() {
         // const classes = useStyles();
+        
         return (
             <div>
                 <form>
