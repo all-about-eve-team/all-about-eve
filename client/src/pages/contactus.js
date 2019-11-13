@@ -1,7 +1,7 @@
-import React, { Component } from "react"
+import React, { Component, Input, Container, Row, Col, Jumbotron, TextArea, List, ListItem, DeleteBtn, FormBtn } from "react"
 import Form from "../components/Form"
 import axios from "axios"
-import ("./contact.css")
+import "./contact.css"
 
 class ContactUs extends Component {
 
@@ -26,6 +26,7 @@ handleFormSubmit = event => {
 }
     render() {
         return (
+          <div>
             <Form />
             <Container fluid>
         <Row>
@@ -78,32 +79,9 @@ handleFormSubmit = event => {
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Contact All About Eve</h1>
-            </Jumbotron>
-            {this.state.message.length ? (
-              <List>
-                {this.state.message.map(message => {
-                  return (
-                    <ListItem key={message._id}>
-                      <a href={"/message/" + message._id}>
-                        <strong>
-                          {message.title} by {book.author}
-                        </strong>
-                      </a>
-                      <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                    </ListItem>
-                  );
-                })}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
         </Row>
       </Container>
-
+</div>
         );
     }
 }
