@@ -2,8 +2,9 @@
     /* background-size: cover; */
   background-clip: content-box;
   border: 6px solid white;
-  height: 200px;
+  /* height: 200px; */
   width: 600px;
   margin-left: 29%;
   margin-top: 2%;
+  /* margin-bottom: 2%; */
 }

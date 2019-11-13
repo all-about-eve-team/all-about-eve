@@ -58,25 +58,39 @@ class Card extends Component {
                 <br></br>
                 {/* Comment:{this.props.comments} */}
                 {/* </ul> */}
+
                 <br></br>
-                <Accordion defaultActiveKey="0">
-                <form>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                        Click me to add a comment!
-      </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
-                        <div>
-                            <input
-                                name="comment"
-                                type="text"
-                                // value={this.state.comment}
-                                placeholder="Comment here!">
-                            </input>
-                            <button onClick={this.handleFormSubmit}>Submit!</button>
-                        </div>
+                <Accordion 
+                // defaultActiveKey="0"
+                
+                >
+                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                        Click me to see comments!
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
                     </Accordion.Collapse>
 
-                </form>
+
+                    <form>
+                        <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                            Click me to add a comment!
+      </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="1">
+                            <div>
+                                <input
+                                    name="comment"
+                                    type="text"
+                                    // value={this.state.comment}
+                                    placeholder="Comment here!">
+                                </input>
+                                <button onClick={this.handleFormSubmit}>Submit!</button>
+                            </div>
+                        </Accordion.Collapse>
+
+                    </form>
                 </Accordion>
             </div>
 
