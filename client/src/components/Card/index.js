@@ -4,24 +4,24 @@ import "./style.css";
 import "../Comment";
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
+import axios from "axios"
+import Comment from "../Comment"
 
 //have to figure out how to pass the specific post id
 
 class Card extends Component {
     state = {
         comment: "",
-        author: this.props.author,
         // hardcoding with a post id to check functionality
-        post: "5dcb5cdc5fff754f7c8cc27f",
+        post: "5dcba4a28a525f449c5e756f",
         // pull in associated comments
         allComments: [],
-        authorid: ""
+        author: this.props.author
     }
     componentDidMount() {
-        console.log(this.state.author)
-        API.getPost()
+        API.getPostId(this.state.post)
             .then(res => {
-                console.log(res)
+                console.log(res.data.comments)
                 this.setState({
                     allComments: res.data.comments
                 })
@@ -39,7 +39,8 @@ class Card extends Component {
         }
         console.log("comment: ")
         console.log(newComment)
-        API.createComment(newComment);
+        API.createComment(newComment)
+        .then(API.updatePost(newComment))
         this.setState(
             {
                 comment: "",
@@ -68,7 +69,9 @@ class Card extends Component {
                 {/* </ul> */}
                 <br></br>
                 <div>Comments will populate here:
-                    {this.state.allComments}
+                {this.state.allComments.map(comment => (
+                        <Comment comment={comment.text}/>
+                    ))}
                 </div>
                 <Accordion defaultActiveKey="0">
                 <form>

@@ -1,8 +1,13 @@
 import React from "react";
-import "../Comment/style.css";
-export function Comment(props) {
+import "./style.css";
+
+
+function Comment(props) {
     return(
-            <input>
-            </input>
+            <p>
+                {props.comment}
+            </p>
     )
 }
+
+export default Comment;
