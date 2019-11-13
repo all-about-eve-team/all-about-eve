@@ -72,6 +72,15 @@ router.get("/:name", (req,res)=>{
     .catch(err => res.status(422).json(err));
 })
 
+router.put("/:id",(req,res)=>{
+    console.log("here's my wacky put route")
+    User.findOneAndUpdate({_id:req.params.id}, {$push: req.body }, { new: true })
+    .then(dbModel=>{
+        res.json(dbModel)
+        console.log(res.json(dbModel))
+    }).catch(err=> res.status(422).json(err))
+})
+
 router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()

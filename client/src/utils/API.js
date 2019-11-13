@@ -31,6 +31,13 @@ export default {
     getPostId: function(id){
         console.log(id)
         return axios.get(`/api/posts/${id}`)
-    }
-
+    },
+    updateUserPost: function(userid,postid){
+        // the postid is currently hardcoded in the forum file unfortnately
+        return axios.put(`/user/${userid}`,{posts:postid})
+    },
+    updateUserComment: function(userid,commentid){
+        // the commentid is currently hardcoded in the forum file unfortnately
+        return axios.put(`/user/${userid}`,{comments:commentid})
+    },
 }

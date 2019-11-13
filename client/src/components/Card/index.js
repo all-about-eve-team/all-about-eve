@@ -4,7 +4,6 @@ import "./style.css";
 import "../Comment";
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import axios from "axios"
 import Comment from "../Comment"
 
 //have to figure out how to pass the specific post id
@@ -41,6 +40,8 @@ class Card extends Component {
         console.log(newComment)
         API.createComment(newComment)
         .then(API.updatePost(newComment))
+        //hardcoding the comment id until i figure out how to dynamically grab it
+        .then(API.updateUserComment(this.state.author, "5dcbb56e81575e441033d43d"))
         this.setState(
             {
                 comment: "",

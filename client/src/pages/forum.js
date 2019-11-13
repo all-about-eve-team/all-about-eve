@@ -4,8 +4,6 @@ import Card from '../components/Card';
 import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
 class Forum extends Component {
     state = {
         title: "",
@@ -14,7 +12,8 @@ class Forum extends Component {
         //need this to be user ID > this.props.username.getuser? or something like that?
         author: this.props.username,
         authorid: "",
-        submittedQuestion: []
+        submittedQuestion: [],
+        questionid: ""
     };
 
     componentDidMount() {
@@ -48,7 +47,6 @@ class Forum extends Component {
         e.preventDefault();
         
         const newPost = {
-            // hardcoding the author to test
             author: this.state.authorid,
             title: this.state.title,
             text: this.state.text,
@@ -56,6 +54,8 @@ class Forum extends Component {
         }
         console.log(newPost);
         API.createPost(newPost)
+        // below I've got to hardcode this in order for it to work -- need to find a way to immediately have the post _id grabbable when i run the below call
+        .then(API.updateUserPost(newPost.author, "5dcbc3e13ecd8339805eb78d"))
         this.setState(
             {
                 title: "",
@@ -118,26 +118,4 @@ class Forum extends Component {
     }
 }
 
-
-
 export default Forum
-
-//for reference:
-// app.post("/submit", function(req, res) {
-//     // Create a new Note in the db
-//     db.Note.create(req.body)
-//       .then(function(dbNote) {
-//         // If a Note was created successfully, find one User (there's only one) and push the new Note's _id to the User's `notes` array
-//         // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
-//         // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-//         return db.User.findOneAndUpdate({}, { $push: { notes: dbNote._id } }, { new: true });
-//       })
-//       .then(function(dbUser) {
-//         // If the User was updated successfully, send it back to the client
-//         res.json(dbUser);
-//       })
-//       .catch(function(err) {
-//         // If an error occurs, send it back to the client
-//         res.json(err);
-//       });
-//   });
