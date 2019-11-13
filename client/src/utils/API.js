@@ -40,4 +40,14 @@ export default {
         // the commentid is currently hardcoded in the forum file unfortnately
         return axios.put(`/user/${userid}`,{comments:commentid})
     },
+    //	// Tags Collection
+	// getTag: function () {
+	// 	console.log("api get route TAGS is getting hit");
+	// 	//return axios.get("/api/articles");
+	// },
+	// Articles Collection
+	getArticle: function () {
+		console.log("api get route ARTICLES is getting hit");
+		return axios.get("/api/articles");
+	},
 }

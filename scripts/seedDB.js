@@ -1,52 +1,41 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Articles collection and inserts the articles below
+// This seed file empties the Tags and Articles collections and loads the initial batch of documents for each
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost:27017/allabouteve"
-);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/allabouteve");
 
-// const categorySeed = [
-//   {"name": "Birth Control", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Period", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Menopause", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Pregnancy", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Breastfeeding", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Community", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Articles", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())}
-// ];
+// Tags collection: Data is fixed (for now) since it will only be displayed when referenced
+const tagSeed = [
+  {"name": "Health Conditions and Diseases", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Nutrition and Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Babies and Toddlers", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Breast and Ovarian", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Cancer", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Cervical", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Colorectal", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Diabetes", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Doctor and Midwife Visits", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Doctor Visits", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Health Conditions and Diseases", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Heart", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "HIV and Other STDs", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Nutrition", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Nutrition and Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Obesity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Older Adults", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Oral Health", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Osteoporosis", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Preeclampsia", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Pregnancy", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "uestions for the Doctor", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Screening Tests", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Sexual Health", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Women", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())}
+];
 
-// const tagSeed = [
-//   {"name": "Health Conditions and Diseases", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Nutrition and Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Babies and Toddlers", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Breast and Ovarian", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Cancer", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Cervical", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Colorectal", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Diabetes", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Doctor and Midwife Visits", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Doctor Visits", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Health Conditions and Diseases", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Heart", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "HIV and Other STDs", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Nutrition", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Nutrition and Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Obesity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Older Adults", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Oral Health", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Osteoporosis", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Preeclampsia", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Pregnancy", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "uestions for the Doctor", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Screening Tests", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Sexual Health", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-//   {"name": "Women", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())}
-// ];
-
+// Articles collection: Data is fixed (for now) since it will only be displayed when referenced
 const articleSeed = [
   {
     "itemId": 1,
@@ -584,41 +573,28 @@ const articleSeed = [
   }
 ];
 
-// // Create Category collection and seed categories data
-// db.Category
-//   .deleteMany({})
-//   .then(() => db.Category.collection.insertMany(categorySeed))
-//   .then(data => {
-//     console.log(data.result.n + " categories inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+// Create Tag collection (if it doesn't exist) and seed tags data
+db.Tag
+  .deleteMany({})
+  .then(() => db.Tag.collection.insertMany(tagSeed))
+  .then(data => {
+    console.log(data.result.n + " tags inserted!");
+  })
+  .catch(err => {
+    console.error(err);
+  });
 
-// // Create Tag collection and seed tags data
-// db.Tag
-//   .deleteMany({})
-//   .then(() => db.Tag.collection.insertMany(tagSeed))
-//   .then(data => {
-//     console.log(data.result.n + " tags inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
-
-// Create Article collection and seed articles data
+// Create Article collection (if it doesn't exist)  and seed articles data
 db.Article
   .deleteMany({})
   .then(() => db.Article.collection.insertMany(articleSeed))
   .then(data => {
     console.log(data.result.n + " articles inserted!");
+    // Since this is the last collection to be seeded, exit successfully
     process.exit(0);
   })
   .catch(err => {
     console.error(err);
+    // Since this is the last collection to be seeded, exit with errors
     process.exit(1);
   });
