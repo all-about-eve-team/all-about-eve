@@ -3,7 +3,10 @@ import API from "../../utils/API"
 import "./style.css";
 import "../Comment";
 import Accordion from 'react-bootstrap/Accordion'
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { InputGroup, FormControl } from 'react-bootstrap';
+
+// import { Collapsible, CollapsibleItem } from 'react-materialize';
 
 
 
@@ -50,7 +53,7 @@ class Card extends Component {
         return (
             <div className="card" >
                 <h4>Question: {this.props.title}</h4>
-                {/* <ul> */}
+                               {/* <ul> */}
                 Comment: {this.props.post}
                 <br></br>
                 {/* <li>{this.props.author}</li> */}
@@ -60,17 +63,25 @@ class Card extends Component {
                 {/* </ul> */}
 
                 <br></br>
-                <Accordion 
+                <Accordion
                 // defaultActiveKey="0"
-                
+
                 >
                     <Accordion.Toggle as={Button} variant="link" eventKey="0">
+
+                        {/* <Collapsible accordion={false} >
+
+                    <CollapsibleItem header="Better safe than sorry. That's my motto."> */}
                         Click me to see comments!
+                        {/* </CollapsibleItem>
+                </Collapsible> */}
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
+
+
                     </Accordion.Collapse>
 
 
@@ -80,18 +91,21 @@ class Card extends Component {
       </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <div>
-                                <input
-                                    name="comment"
+                                
+                                <InputGroup className="mb-3">
+                                    
+                                    <FormControl aria-describedby="basic-addon1" name="comment"
                                     type="text"
-                                    // value={this.state.comment}
-                                    placeholder="Comment here!">
-                                </input>
-                                <button onClick={this.handleFormSubmit}>Submit!</button>
+                                    placeholder="Comment here!"/>
+                                    <button onClick={this.handleFormSubmit}>Submit!</button>
+                                </InputGroup>
                             </div>
                         </Accordion.Collapse>
 
                     </form>
                 </Accordion>
+
+
             </div>
 
 

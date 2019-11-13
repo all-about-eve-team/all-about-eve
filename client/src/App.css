@@ -22,10 +22,17 @@
   font-size: large;
 }
 
+body {
+background-color: #FEEAE6;
+}
+
 .navbar {
  
   margin-top: auto;
   
+}
+#menu-text{
+  color:#442c2e
 }
 #top-filler {
   margin-bottom: auto;
@@ -33,6 +40,8 @@
 
 #nav-container {
   align-items: flex-end;
+  background-color: #FEDBD0;
+  color: #442C2E;
 }
 
 @keyframes App-logo-spin {
@@ -103,5 +112,6 @@ h3 {
   align-items: center;
   justify-content: center;
 }
+
 
 

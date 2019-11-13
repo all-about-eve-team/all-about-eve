@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../App.css';
-import axios from 'axios'
+import axios from 'axios';
+// import { Dropdown, Button } from 'react-materialize';
 
 class Navbar extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class Navbar extends Component {
         console.log('navbar render, props: ')
         console.log(this.props);
         const user = this.props.user
-        
+
 
         return (
             <div>
@@ -41,24 +42,28 @@ class Navbar extends Component {
                         {loggedIn ? (
                             <section className="navbar-section">
                                 <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
-                                    <span className="text-secondary">logout</span></Link>
+                                    <span className="text-secondary" >logout</span></Link>
                                 <Link to="/forum" className="btn btn-link text-secondary">
-                                    <span className="text-secondary">forum</span>
+                                    <span className="text-secondary" >forum</span>
                                 </Link>
                                 <Link to="/period" username={user} className="btn btn-link text-secondary">
-                                    <span className="text-secondary">period</span>
+                                    <span className="text-secondary" >period</span>
                                 </Link>
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="/" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">home</span>
-                                    </Link>
+                                    {/* <Dropdown trigger={<Button />}> */}
+                                    {/* <a href="#"> */}
+                                        <Link to="/" className="btn btn-link text-secondary">
+                                            <span className="text-secondary" id="menu-text">Home</span>
+                                        </Link>
+                                    {/* </a> */}
+                                    {/* </Dropdown> */}
                                     <Link to="/login" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">login</span>
+                                        <span className="text-secondary" id="menu-text">Login</span>
                                     </Link>
                                     <Link to="/signup" className="btn btn-link">
-                                        <span className="text-secondary">sign up</span>
+                                        <span className="text-secondary" id="menu-text">Sign-up</span>
                                     </Link>
                                 </section>
                             )}
