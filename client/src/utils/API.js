@@ -22,6 +22,11 @@ export default {
 	getComment: function () {
 		return axios.get("/api/comments")
 	},
+	// Tags Collection
+	// getTag: function () {
+	// 	console.log("api get route TAGS is getting hit");
+	// 	//return axios.get("/api/articles");
+	// },
 	// Articles Collection
 	getArticle: function () {
 		console.log("api get route ARTICLES is getting hit");
