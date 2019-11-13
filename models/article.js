@@ -8,11 +8,6 @@ const articleSchema = new Schema({
   "title": {type: String},
   "imageUrl": {type: String},
   "url": {type: String},
-  "relatedItems": [
-    {
-      "itemId": {type: Number}
-    }
-  ],
   "sections": [
     {
       "title": {type: String},
