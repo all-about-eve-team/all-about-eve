@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
   // documents belonging to schema
-  "itemId": {type: Number},
+  "itemId": {type: Number, unique: true},
   "type": {type: String},
   "title": {type: String},
   "imageUrl": {type: String},
@@ -25,8 +25,8 @@ const articleSchema = new Schema({
   "content": {type: String},
   "createdAt": {type: Date, default: Date.now},
   "updatedAt": {type: Date, default: Date.now},
+  "tags": {type: Array}
   // documents belonging to other collections
-  tags: [{type: Schema.Types.ObjectId, ref: "Tag"}]
 });
 
 const Article = mongoose.model("Article", articleSchema);
