@@ -9,7 +9,7 @@ router.route("/")
 // /api/posts/:id
 router
   .route("/:id")
-  // .get(postsController.findById)
+  .get(postsController.findById)
   .put(postsController.update)
   .delete(postsController.remove);
 

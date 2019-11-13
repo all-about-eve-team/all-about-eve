@@ -6,10 +6,9 @@ class Period extends Component {
     state = {
         author: this.props.username,
         title: "",
-        text: "",
         productCategory: "",
         image: "",
-        results: ["test","second entry"]
+        results: []
     };
 
     componentDidMount() {
@@ -36,9 +35,8 @@ class Period extends Component {
         e.preventDefault();
 
         const newPeriodPost = {
-            author: this.state.author,
+            
             title: this.state.title,
-            text: this.state.text,
             image: this.state.image,
             productCategory: this.state.productCategory
         }
@@ -48,7 +46,7 @@ class Period extends Component {
 
         this.setState(
             {
-                author: "", title: "", text: "", productCategory: "", image: ""
+                title: "", productCategory: "", image: ""
             }
         )
     }
@@ -67,12 +65,6 @@ class Period extends Component {
                         onChange={this.handleInputChange}
                         placeholder="title" />
                     <input
-                        name="text"
-                        type="text"
-                        value={this.state.text}
-                        onChange={this.handleInputChange}
-                        placeholder="text" />
-                    <input
                         name="productCategory"
                         type="text"
                         value={this.state.productCategory}
@@ -86,7 +78,7 @@ class Period extends Component {
                         placeholder="image" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
-                <PeriodPostWrapper posts={this.state.results}/>
+                <PeriodPostWrapper username ={this.state.author} posts={this.state.results}/>
                 </div>
             ) : (
                 <h1>Login, sweetheart</h1>

@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 const periodPostSchema = new Schema({
     // documents belonging to schema
-    author: {type: String},
     title: {type: String, required: true},
-    text: {type: String, required: true},
+    // text: {type: String, required: true},
     date: {type: Date, default: Date.now},
     active: { type: Boolean, default: true},
     image: {type: String, required: true},

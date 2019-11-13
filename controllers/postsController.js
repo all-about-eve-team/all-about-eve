@@ -8,6 +8,13 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findById: function (req, res) {
+        db.Post
+            .findById({_id: req.params.id})
+            .populate("comments")
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     findByCategory: function (req, res) {
         db.Post
             .findById({category: req.params.category})
@@ -17,14 +24,14 @@ module.exports = {
     },
     create: function (req, res) {
         db.Post
-            .populate("author")
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     update: function (req, res) {
+        console.log(req.body)
         db.Post
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .findOneAndUpdate({ _id: req.params.id }, {$push: req.body }, { new: true })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
