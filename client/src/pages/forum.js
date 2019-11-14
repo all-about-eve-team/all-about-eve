@@ -75,17 +75,21 @@ class Forum extends Component {
 
     handleCommentSubmit = e => {
         e.preventDefault();
+        console.log(e.target.postid)
+        console.log(e.target.className)
+    
+        console.log(this.state.postid)
         const newComment = {
             text: this.state.commenttext,
             author: this.state.author,
-            post: this.state.post_id
+            post: e.target.className
         }
         console.log("comment: ")
-        console.log(newComment.post)
+        console.log(newComment)
         API.createComment(newComment)
             .then(API.updatePost(newComment))
             //hardcoding the comment id until i figure out how to dynamically grab it
-            .then(API.updateUserComment(this.state.author, this.state.post))
+            // .then(API.updateUserComment(this.state.author, this.state.post))
         this.setState(
             {
                 commenttext: "",
