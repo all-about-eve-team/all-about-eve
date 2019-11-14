@@ -23,6 +23,7 @@
   ],
   "author": "Colin Goodale",
   "license": "ISC",
+  "homepage": "https://all-about-eve-team.github.io/all-about-eve/",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
@@ -33,6 +34,7 @@
     "connect-mongo": "^3.1.2",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "gh-pages": "^2.1.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.7.10",
     "morgan": "^1.9.1",

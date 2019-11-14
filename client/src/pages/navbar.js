@@ -48,6 +48,9 @@ class Navbar extends Component {
                                 <Link to="/period" username={user} className="btn btn-link text-secondary">
                                     <span className="text-secondary">period</span>
                                 </Link>
+                                <Link to="/articles" username={user} className="btn btn-link text-secondary">
+                                    <span className="text-secondary">articles</span>
+                                </Link>
                             </section>
                         ) : (
                                 <section className="navbar-section">

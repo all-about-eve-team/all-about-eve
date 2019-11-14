@@ -12,11 +12,10 @@ class Article extends Component {
   }
 
   loadArticles = () => {
-    console.log("hit loadArticles()!");
     API.getArticle()
       .then(res => {
-        console.log("hit API.getArticle()!");
-        console.log(res);
+        //GGRE--> For debugging only
+        //console.log("res.data--> ", res.data);
         this.setState({
           articles: res.data
         })
@@ -28,7 +27,6 @@ class Article extends Component {
     return (
       //GGRE--> Need to add form with dropdown to select multiple tags and pass them onto the wrapper as props
       <div>
-        <h1>Passing the articles as props to the wrapper</h1>
         <ArticleWrapper articles={this.state.articles}/>
       </div>
     )
