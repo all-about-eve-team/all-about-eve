@@ -65,11 +65,16 @@ class Navbar extends Component {
                                     </Link>
                                 </section>
                             )}
-                    </div>
+                   </div>
                     <div className="col-4 col-mr-auto">
                         <div id="top-filler"></div>
-                        <img src={logo} className="App-logo" alt="logo" />
+                        {/* <img src={logo} className="App-logo" alt="logo" /> */}
                         <h1 className="App-title">All About Eve</h1>
+                    </div>
+                    <div className="col-4 col-mr-auto text-right">
+                        <Link to="/contactus" className="btn btn-link text-secondary">
+                            <span className="text-secondary ">Contact Us</span>
+                        </Link>
                     </div>
                 </header>
             </div>

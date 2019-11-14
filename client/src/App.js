@@ -8,6 +8,7 @@ import Navbar from './pages/navbar'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import Period from "./pages/period"
+import ContactUs from './pages/contactus';
 import Article from "./pages/article"
 import API from './utils/API'
 
@@ -109,6 +110,11 @@ class App extends Component {
           render={() =>
             <Signup />}
         />
+        <Route
+        path="/contactus"
+        render={() =>
+          <ContactUs />}
+          />
 
       </div>
     );
