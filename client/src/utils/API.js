@@ -27,7 +27,7 @@ export default {
         console.log(comment.post)
         console.log(comment.text)
         // hardcoding comment id to test
-        return axios.put(`/api/posts/${comment.post}`, {comments: "5dcbbadf1430e62a48ea932e"})
+        return axios.put(`/api/posts/${comment.post}`, {comments: comment.text})
     },
     getPostId: function(id){
         console.log(id)
