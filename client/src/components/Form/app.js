@@ -6,8 +6,8 @@ var transporter = nodemailer.createTransport({
     auth: {
         xoath2: xoath2.createXOAuth2Generator({
             user:'4allabouteve@gmail.com',
-            clientId: '354434422011-604vgk2firkukq2gsjhfp7ledfrid9go.apps.googleusercontent.com',
-            clientSecret: 'b4LjqH-DfJe0GfT6ULpSGD0i',
+            clientId: '662007221584-m4krcam1i57gee0mbl1fdc1l6db5nn2c.apps.googleusercontent.com',
+            clientSecret: 'JShVEzfymqyqpucVZ0ZkXR6a',
             refreshToken: ''
         })
     }
