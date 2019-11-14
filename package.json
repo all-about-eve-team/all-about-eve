@@ -21,9 +21,8 @@
     "nodejs",
     "bcryptjs"
   ],
-  "author": "Colin Goodale",
+  "author": "Saikal Asylbekova, Nora Byrd, GG Guitart, Giovanna Roman",
   "license": "ISC",
-  "homepage": "https://all-about-eve-team.github.io/all-about-eve/",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
