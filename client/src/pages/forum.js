@@ -158,9 +158,11 @@ class Forum extends Component {
                                                 author={this.state.author}
                                                 category={post.category}
                                                 // here we loop through & display each post's comments:
-                                                comments={post.comments.map(comment => (
+                                                
+                                                comments={post.comments.map(comment =>(
                                                     <QuestionComment text={comment.text} author={comment.author} />
-                                                ))}
+                                                )
+                                               )}
                                             />
 
                                         </div>
