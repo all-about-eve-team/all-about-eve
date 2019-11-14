@@ -10,6 +10,7 @@ import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
 import '../forum_style.css'
 import { shape } from 'prop-types';
 
+
 class Forum extends Component {
     state = {
         title: "",
@@ -65,7 +66,8 @@ class Forum extends Component {
                 category: "",
             }
         )
-        // need a way to reload the page with the new post without logging the user out!
+        // reload the components so the new post displays
+        this.componentDidMount()
     }
 
     // this function handles the creation of a new comment
@@ -90,6 +92,8 @@ class Forum extends Component {
                 this.setState({ commentsender: senderComment })
                 // and lastly we update the post the comment is tied to with all the new comment info so it will display when we populate the post with its comments
                 API.updatePost(this.state.commentsender)
+                // roload the components so the new comment displays
+                this.componentDidMount()
             })
             .catch(err => console.log(err));
         //and lastly clearing everything out to make way for a new comment  
