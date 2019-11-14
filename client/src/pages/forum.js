@@ -66,6 +66,7 @@ class Forum extends Component {
             }
         )
         // need a way to reload the page with the new post without logging the user out!
+        this.componentDidMount()
     }
 
     // this function handles the creation of a new comment
@@ -99,6 +100,7 @@ class Forum extends Component {
                 commentsender: ""
             }
         )
+        this.componentDidMount()
     }
 
     render() {
