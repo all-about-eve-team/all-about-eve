@@ -1,18 +1,18 @@
 import React from "react";
 import "./style.css";
 
-function ArticleWrapper(props) {
+
+function TagWrapper(props) {
   //GGRE--> For debugging only
-  console.log("props.articles--> ", props.articles);
+  console.log("props.tags--> ", props.tags);
   return (
-    <div>
+    <div className="list-tags">
+      <h3>Just to see if it works!</h3>
       <br></br>
-      <ul className="list-articles">
-        {props.articles.map(article => (
-          <li key={article.itemId} className="list-article-item">
-            <p>Title: <strong>{article.title}</strong></p>
-            <p>Url: <a href={article.url} target="blank">{article.url}</a></p>
-            <p>Tags: {article.tags.join(" | ")}</p>
+      <ul className="list-tag-name">
+        {props.tags.map(tag => (
+          <li key={tag.name} className="list-tag-name">
+            {tag.name}
           </li>
         ))}
       </ul>
@@ -20,4 +20,4 @@ function ArticleWrapper(props) {
   )
 }
 
-export default ArticleWrapper;
+export default TagWrapper;

@@ -1,4 +1,5 @@
-.list-articles {
+.list-articles,
+.list-article-item {
   list-style: none;
   list-style-type: none;
   text-align: justify;

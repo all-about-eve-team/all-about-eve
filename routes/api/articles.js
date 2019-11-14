@@ -5,6 +5,10 @@ const articleController = require("../../controllers/articleController");
 router.route("/")
   .get(articleController.findAll)
 
+// /api/articles/tags
+router.route("/tags")
+  .get(articleController.findByTag)
+
 // /api/articles/:tags
 router.route("/:tags")
   .get(articleController.findByTag)
