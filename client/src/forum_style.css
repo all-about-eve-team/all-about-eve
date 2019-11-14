@@ -1,0 +1,76 @@
+body {
+    background-color:red
+}
+.question-post{
+    padding-left : 35%;
+    padding-right: 35%;
+    padding-top: 2%;
+    background-color: #FFF4F4;
+    /* width: 40%; */
+    /* border: solid; */
+    box-shadow: #442C2E;
+    /* border: solid; */
+}
+
+.accordiancollapse {
+  position: center;
+  margin-left: 42%;
+}
+.comment-page {
+  background-color: #FFF4F4;
+}
+.isthiscard{
+  /* border: solid;
+  background-color: aquamarine; */
+  background-clip: content-box;
+  /* border: 6px solid white;
+  height: 200px;
+  width: 600px;
+  margin-left: 29%;
+  margin-top: 2%; */
+}
+
+
+.shape {
+    height: 40px;
+    background-color: #FEDBD0;
+    color: #442C2E;
+    width: 70px;
+    border-radius: 30px;
+    /* margin-bottom: 30px; */
+    /* margin-right: 20px; */
+    /* float: right; */
+    /* margin-left:30%; */
+  }
+
+  
+  
+  .shape2 {
+    border-radius: 30px;
+  }
+  .shape3 {
+    border-radius: 30px;
+    /* margin-left: 40%; */
+    margin-left: 40%;
+  }
+
+/* button {
+    background-color: #FEDBD0;
+    color: #442C2E;
+    box-shadow: 2px 2px 2px #888888;
+    /* border-color: #442C2E; */
+    /* border-width: 2%;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; */
+    
+  /* } */ 
+  /* .button1 {border-radius: 50%;} */
+
+  .carddiv{
+    background-color: #FFF4F4;
+  }
+
+
