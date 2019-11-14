@@ -5,7 +5,9 @@ import Button from 'react-bootstrap/Button'
 
 function Question (props) {
     return (
-        <div className="card" >
+        <div 
+        // className="card"
+         >
         <h4>Question: {props.title}</h4>
         {/* <ul> */}
         Text: {props.post}
