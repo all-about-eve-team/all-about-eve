@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import Card from '../components/Card';
+import Card from '../components/Card'
 import Question from "../components/Question"
 import QuestionComment from "../components/QuestionComment"
 import axios from "axios"
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
 
