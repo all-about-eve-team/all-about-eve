@@ -7,7 +7,7 @@ import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup } from 'react-bootstrap';
+import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
 import '../forum_style.css'
 import { shape } from 'prop-types';
 
@@ -122,7 +122,7 @@ class Forum extends Component {
                                 placeholder="text" />
                         </InputGroup>
                         <InputGroup className="mb-3">
-
+                            
                             <FormControl
                                 className="formcontrol"
                                 name="category"
