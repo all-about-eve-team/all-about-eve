@@ -18,11 +18,13 @@ class Forum extends Component {
         authorid: "",
         submittedQuestion: [],
         questionid: "",
-        commenttext: ""
+        commenttext: "",
+        commentid: ""
     };
 
     componentDidMount() {
         console.log(this.state.author)
+ 
         // this.props.getUser()
         axios.get('/user/' + this.state.author).then(res => {
             // .then(res=>{
@@ -30,7 +32,7 @@ class Forum extends Component {
             this.setState({ authorid: res.data._id })
         }).catch(err => console.log(err))
         // console.log(this.state.authorid)
-
+       
         API.getPost()
             .then(res => {
                 console.log(res)
@@ -39,6 +41,8 @@ class Forum extends Component {
                     submittedQuestion: res.data
                 })
                 console.log(this.state)
+                console.log(this.state.submittedQuestion)
+                console.log(this.state.submittedQuestion.comments)
             })
             .catch(err => console.log(err));
     };
@@ -87,7 +91,20 @@ class Forum extends Component {
         console.log("comment: ")
         console.log(newComment)
         API.createComment(newComment)
-            .then(API.updatePost(newComment))
+        //commenting the below as a test
+            // .then(res
+                .then(res => {
+                    console.log(res)
+                    console.log(res.data)
+                    this.setState({
+                        commentid: res.data._id
+                    })
+                    newComment.commentid = this.state.commentid
+                    console.log(newComment)
+                })
+                .then(API.updatePost(newComment))
+                .catch(err => console.log(err));
+            
             //hardcoding the comment id until i figure out how to dynamically grab it
             // .then(API.updateUserComment(this.state.author, this.state.post))
         this.setState(
@@ -137,6 +154,7 @@ class Forum extends Component {
                 </form>
                 <div>
                     {this.state.submittedQuestion.map(post => (
+                        
                         <div>
                         <Question post={post.text}
                             title={post.title}
@@ -148,9 +166,8 @@ class Forum extends Component {
                         />
                         <form>
                         <input
-                            name="commenttext"
                             type="text"
-                            className={post._id}
+                            name="commenttext"
                             value={this.state.commenttext}
                             onChange={this.handleInputChange}
                             placeholder="Comment here!">

@@ -20,14 +20,12 @@ export default {
         console.log(postData)
         return axios.post("/api/comments", postData)
     },
-    getComment: function(){
-        return axios.get("/api/comments")
-    },
+   
     updatePost: function(comment){
         console.log(comment.post)
         console.log(comment.text)
         // hardcoding comment id to test
-        return axios.put(`/api/posts/${comment.post}`, {comments: comment.text})
+        return axios.put(`/api/posts/${comment.post}`, {comments: comment.commentid})
     },
     getPostId: function(id){
         console.log(id)
@@ -51,5 +49,5 @@ export default {
         //GGRE--> For debugging
 		console.log("tags--> ", tags.join(","));
 		// return axios.get("/api/articles" + tags);
-	}
+    }
 }
