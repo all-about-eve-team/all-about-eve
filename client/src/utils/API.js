@@ -17,6 +17,7 @@ export default {
         return axios.get("/api/periodposts/")
     },
     createComment: function(postData){
+        console.log(postData)
         return axios.post("/api/comments", postData)
     },
     getComment: function(){

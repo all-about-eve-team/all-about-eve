@@ -152,7 +152,7 @@ class Forum extends Component {
                             type="text"
                             className={post._id}
                             value={this.state.commenttext}
-                            onChange={this.handleCommentInputChange}
+                            onChange={this.handleInputChange}
                             placeholder="Comment here!">
                         </input>
                         <button className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
