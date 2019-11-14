@@ -1,0 +1,6 @@
+.list-articles {
+  list-style: none;
+  list-style-type: none;
+  text-align: justify;
+  line-height: 15px;
+}

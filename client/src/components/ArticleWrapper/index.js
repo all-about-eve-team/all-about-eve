@@ -1,23 +1,23 @@
 import React from "react";
+import "./style.css";
 
 function ArticleWrapper(props) {
-  console.log("hit ArticleWrapper()!");
-  console.log(props.articles);
+  //GGRE--> For debugging only
+  console.log("props.articles--> ", props.articles);
   return (
     <div>
-      <h1>This will wrap the list of articles that match multiple tags</h1>
+      <br></br>
+      <ul className="list-articles">
+        {props.articles.map(article => (
+          <li key={article.itemId} className="list-article-item">
+            <p>Title: <strong>{article.title}</strong></p>
+            <p>Url: <a href={article.url} target="blank">{article.url}</a></p>
+            <p>Tags: {article.tags.join(" | ")}</p>
+          </li>
+        ))}
+      </ul>
     </div>
-    // <ul className="list-articles">
-    //   {props.articles.map(article => (
-    //     <li key={article.itemId} className="list-article-item">   {/* GGRE--> Should use _id instead??? itemID is unique too! */}
-    //       Title: {article.title}
-    //       Url: {article.url}
-    //       {/* GGRE--> No need to show the tags array later */}
-    //       {/* Tags: {article.tags} */}
-    //     </li>
-    //   ))}
-    // </ul>
-  );
+  )
 }
 
 export default ArticleWrapper;
