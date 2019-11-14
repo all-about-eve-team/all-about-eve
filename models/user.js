@@ -19,10 +19,10 @@ const userSchema = new Schema({
     }, 
     icon: { type: String, default: "../client/public/favicon.ico"},
     // documents belonging to other collections
-    posts: [{ type: Schema.Types.ObjectId, ref: "./Post" }],
-    comments: [{ type: Schema.Types.ObjectId, ref: "./Comment" }],
+    posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     periodPosts: [{type: Schema.Types.ObjectId, ref: "./PeriodPost"}],
-    periodComments: [{type: Schema.Types.ObjectId, ref: "./PeriodComment"}]
+    periodComments: [{type: Schema.Types.ObjectId, ref: "./periodcomment"}]
 })
 
 // Define schema methods

@@ -4,34 +4,46 @@ import "./style.css";
 import "../Comment";
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
+import Comment from "../Comment"
 
-
+//have to figure out how to pass the specific post id
 
 class Card extends Component {
     state = {
         comment: "",
-        // userID: 
-        // // author: this.author
-
+        // hardcoding with a post id to check functionality
+        post: "",
+        // pull in associated comments
+        allComments: [],
+        author: this.props.author
     }
     componentDidMount() {
-        API.getComment()
+        API.getPostId(this.state.post)
             .then(res => {
-                console.log(res)
+                console.log(res.data.comments)
                 this.setState({
-                    comment: res.data
+                    allComments: res.data.comments,
+                    post: res.data._id
                 })
+                // console.log(this.state)
             })
             .catch(err => console.log(err));
+        
     };
 
     handleFormSubmit = e => {
         e.preventDefault();
         const newComment = {
             text: this.state.comment,
+            author: this.state.author,
+            post: this.state.post
         }
-        // console.log(newComment);
-        API.createComment(newComment);
+        console.log("comment: ")
+        console.log(newComment)
+        API.createComment(newComment)
+        .then(API.updatePost(newComment))
+        //hardcoding the comment id until i figure out how to dynamically grab it
+        .then(API.updateUserComment(this.state.author, this.state.post))
         this.setState(
             {
                 comment: "",
@@ -59,6 +71,11 @@ class Card extends Component {
                 {/* Comment:{this.props.comments} */}
                 {/* </ul> */}
                 <br></br>
+                <div>Comments will populate here:
+                
+                        <Comment onClick={this.handleFormSubmit}/>
+                   
+                </div>
                 <Accordion defaultActiveKey="0">
                 <form>
                     <Accordion.Toggle as={Button} variant="link" eventKey="1">
@@ -69,7 +86,8 @@ class Card extends Component {
                             <input
                                 name="comment"
                                 type="text"
-                                // value={this.state.comment}
+                                value={this.state.comment}
+                                onChange={this.handleInputChange}
                                 placeholder="Comment here!">
                             </input>
                             <button onClick={this.handleFormSubmit}>Submit!</button>

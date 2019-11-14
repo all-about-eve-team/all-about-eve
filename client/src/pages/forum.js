@@ -1,41 +1,50 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import  Card  from '../components/Card';
+import Card from '../components/Card';
+import Question from "../components/Question"
+import QuestionComment from "../components/QuestionComment"
+import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles';
-
-
+import Accordion from 'react-bootstrap/Accordion'
+import Button from 'react-bootstrap/Button'
 
 class Forum extends Component {
     state = {
         title: "",
         text: "",
         category: "",
-        // author: this.props.username,
+        //need this to be user ID > this.props.username.getuser? or something like that?
+        author: this.props.username,
+        authorid: "",
         submittedQuestion: [],
-        // categoryArray: []
-        
-
+        questionid: "",
+        commenttext: ""
     };
 
-    // console.log("author: "+ author);
-    
-
     componentDidMount() {
+        console.log(this.state.author)
+        // this.props.getUser()
+        axios.get('/user/' + this.state.author).then(res => {
+            // .then(res=>{
+            console.log(res.data._id)
+            this.setState({ authorid: res.data._id })
+        }).catch(err => console.log(err))
+        // console.log(this.state.authorid)
+
         API.getPost()
             .then(res => {
                 console.log(res)
+                console.log(res.data[0].comments)
                 this.setState({
                     submittedQuestion: res.data
                 })
+                console.log(this.state)
             })
             .catch(err => console.log(err));
     };
 
     handleInputChange = e => {
-        // console.log("working");
-        // console.log(e.target);
         const { name, value } = e.target;
-
         this.setState({
             [name]: value
         })
@@ -43,34 +52,55 @@ class Forum extends Component {
 
     handleFormSubmit = e => {
         e.preventDefault();
-        const newPost = { 
-            // // author: this.state.author,
+
+        const newPost = {
+            author: this.state.authorid,
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
         }
         console.log(newPost);
-        API.createPost(newPost);
+        API.createPost(newPost)
+        // below I've got to hardcode this in order for it to work -- need to find a way to immediately have the post _id grabbable when i run the below call
+        // .then(API.updateUserPost(newPost.author, "5dcbc3e13ecd8339805eb78d"))
         this.setState(
             {
                 title: "",
                 text: "",
-                category: ""
+                category: "",
+            }
+        )
+        // need a way to reload the page with the new post without logging the user out
+    }
+
+    handleCommentSubmit = e => {
+        e.preventDefault();
+        const newComment = {
+            text: this.state.commenttext,
+            author: this.state.author,
+            post: this.state.post_id
+        }
+        console.log("comment: ")
+        console.log(newComment.post)
+        API.createComment(newComment)
+            .then(API.updatePost(newComment))
+            //hardcoding the comment id until i figure out how to dynamically grab it
+            .then(API.updateUserComment(this.state.author, this.state.post))
+        this.setState(
+            {
+                commenttext: "",
             }
         )
     }
 
-
-
     render() {
         // const classes = useStyles();
+
         return (
             <div>
-                testing{this.props.username}
-                <form
-                // className={classes.container}
-
-                >
+                <form>
+                    {/* // className={classes.container}
+                > */}
                     {/* <div>
                         <TextField
                             id="standard-basic"
@@ -100,24 +130,36 @@ class Forum extends Component {
                         onChange={this.handleInputChange}
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
-
-                     </form>
+                </form>
+                <div>
+                    {this.state.submittedQuestion.map(post => (
                         <div>
-                            {this.state.submittedQuestion.map(post => (
-                                <Card post={post.text} 
-                                title = {post.title} 
-                                // // author={post.author}
-                                category={post.category}
-                                card = {Card}/>
+                        <Question post={post.text}
+                            title={post.title}
+                            author={this.state.author}
+                            category={post.category}
+                            comments={post.comments.map(comment => (
+                                <QuestionComment text={comment.text} author={comment.author} />
                             ))}
-                            </div>
-                 
-               
+                        />
+                        <form>
+                        <input
+                            name="commenttext"
+                            type="text"
+                            value={this.state.commenttext}
+                            onChange={this.handleInputChange}
+                            placeholder="Comment here!">
+                        </input>
+                        <button onClick={this.handleCommentSubmit}>Submit!</button>
+                    </form>
+                    </div>
+                    ))}
+                </div>
             </div>
         );
     }
 }
 
-
-
 export default Forum
+
+
