@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
 import '../forum_style.css'
 import { shape } from 'prop-types';
-import "./forum.css"
+
 
 class Forum extends Component {
     state = {
@@ -153,13 +153,8 @@ class Forum extends Component {
                             <div>
                                 {/* here we loop through every submitted question and display the posts along with their related comments */}
                                 {this.state.submittedQuestion.map(post => (
-<<<<<<< HEAD
-                                    <div>
-                                        <div className="articleBox">
-=======
                                     <div className="questionwrapper">
                                         <div>
->>>>>>> master
                                             <Question post={post.text}
                                                 title={post.title}
                                                 author={this.state.author}
