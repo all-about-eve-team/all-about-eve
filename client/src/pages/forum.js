@@ -153,16 +153,23 @@ class Forum extends Component {
                             <div>
                                 {/* here we loop through every submitted question and display the posts along with their related comments */}
                                 {this.state.submittedQuestion.map(post => (
+<<<<<<< HEAD
                                     <div>
                                         <div className="articleBox">
+=======
+                                    <div className="questionwrapper">
+                                        <div>
+>>>>>>> master
                                             <Question post={post.text}
                                                 title={post.title}
                                                 author={this.state.author}
                                                 category={post.category}
                                                 // here we loop through & display each post's comments:
-                                                comments={post.comments.map(comment => (
+                                                
+                                                comments={post.comments.map(comment =>(
                                                     <QuestionComment text={comment.text} author={comment.author} />
-                                                ))}
+                                                )
+                                               )}
                                             />
 
                                         </div>
@@ -184,7 +191,7 @@ class Forum extends Component {
                                                                 onChange={this.handleInputChange}
                                                                 placeholder="Comment here!"
                                                             />
-                                                            <button class="shape shape2" className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
+                                                            <button  className={post._id}  data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
 
                                                         </InputGroup>
                                                     </Accordion.Collapse>
