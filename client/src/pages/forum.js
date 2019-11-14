@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import Card from '../components/Card'
 import Question from "../components/Question"
 import QuestionComment from "../components/QuestionComment"
 import axios from "axios"
@@ -13,13 +12,14 @@ class Forum extends Component {
         title: "",
         text: "",
         category: "",
-        //need this to be user ID > this.props.username.getuser? or something like that?
         author: this.props.username,
         authorid: "",
+        // the submittedQuestion state is what allows us to display 
         submittedQuestion: [],
         questionid: "",
         commenttext: "",
-        commentid: ""
+        commentid: "",
+        commentsender: ""
     };
 
     componentDidMount() {
@@ -35,8 +35,6 @@ class Forum extends Component {
        
         API.getPost()
             .then(res => {
-                console.log(res)
-                console.log(res.data[0].comments)
                 this.setState({
                     submittedQuestion: res.data
                 })
@@ -81,9 +79,8 @@ class Forum extends Component {
         e.preventDefault();
         console.log(e.target.postid)
         console.log(e.target.className)
-    
         console.log(this.state.postid)
-        const newComment = {
+        let newComment = {
             text: this.state.commenttext,
             author: this.state.author,
             post: e.target.className
@@ -93,16 +90,24 @@ class Forum extends Component {
         API.createComment(newComment)
         //commenting the below as a test
             // .then(res
+            
                 .then(res => {
+                    let senderComment = {}
                     console.log(res)
                     console.log(res.data)
                     this.setState({
                         commentid: res.data._id
                     })
-                    newComment.commentid = this.state.commentid
-                    console.log(newComment)
+                    
+                    senderComment.commentid = res.data._id
+                    senderComment.text = res.data.text
+                    senderComment.post = res.data.post
+                    console.log(senderComment)
+                    this.setState({commentsender:senderComment})
+                    console.log(this.state.commentsender)
+                    API.updatePost(this.state.commentsender)
                 })
-                .then(API.updatePost(newComment))
+                
                 .catch(err => console.log(err));
             
             //hardcoding the comment id until i figure out how to dynamically grab it
@@ -110,6 +115,8 @@ class Forum extends Component {
         this.setState(
             {
                 commenttext: "",
+                commentsender: "",
+                commentid: ""
             }
         )
     }

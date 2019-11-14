@@ -22,8 +22,9 @@ export default {
     },
    
     updatePost: function(comment){
+        console.log(comment)
         console.log(comment.post)
-        console.log(comment.text)
+        console.log(comment.commentid)
         // hardcoding comment id to test
         return axios.put(`/api/posts/${comment.post}`, {comments: comment.commentid})
     },
