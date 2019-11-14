@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button'
 import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
 import '../forum_style.css'
 import { shape } from 'prop-types';
+import "./forum.css"
 
 class Forum extends Component {
     state = {
@@ -65,7 +66,6 @@ class Forum extends Component {
                 category: "",
             }
         )
-        // need a way to reload the page with the new post without logging the user out!
         this.componentDidMount()
     }
 
@@ -154,7 +154,7 @@ class Forum extends Component {
                                 {/* here we loop through every submitted question and display the posts along with their related comments */}
                                 {this.state.submittedQuestion.map(post => (
                                     <div>
-                                        <div>
+                                        <div className="articleBox">
                                             <Question post={post.text}
                                                 title={post.title}
                                                 author={this.state.author}
