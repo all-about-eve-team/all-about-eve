@@ -3,10 +3,10 @@ const articleController = require("../../controllers/articleController");
 
 // /api/articles/
 router.route("/")
-  .get(articleController.findAll);
+  .get(articleController.findAll)
 
-// /api/articles/:tags          GGRE--> What should be the route for the tags array???
-// router.route("/:tags")
-//   .get(articleController.findByTag);
+// /api/articles/:tags
+router.route("/:tags")
+  .get(articleController.findByTag)
 
 module.exports = router;
