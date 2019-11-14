@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const nodemailer=require('nodemailer');
+const oauth2=require('oauth2');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const dbConnection = require('./connection');
@@ -44,6 +46,40 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use('/user', user);
 app.use('/api', api);
+app.post("/api/mail", (req, res)=>{
+    console.log("email route hit");
+    console.log(req.body);
+    var transporter = nodemailer.createTransport({
+        host:'smtp.gmail.com',
+        port:465,
+        secure:true,
+            auth:{
+                type:'OAuth2',
+                user:process.env.User,
+                clientId: process.env.clientId,
+                clientSecret: process.env.clientSecret,
+                refreshToken: process.env.refreshToken,
+                accessToken: process.env.accessToken
+            },
+            tls:{
+                rejectUnauthorized: false
+            }
+        })
+    var mailOptions = {
+        from: 'Eve <4allabouteve@gmail.com>',
+        to: 'Saikal <7saikal@gmail.com>',
+        subject: 'Nodemailer test',
+        text: 'Hello World!!'
+    }
+    transporter.sendMail(mailOptions, function (err,res) {
+        if(err) {
+            console.log('Error');
+            console.log(err)
+        } else {
+            console.log('Email Sent');
+        }
+    })
+})
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
