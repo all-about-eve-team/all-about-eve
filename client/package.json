@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.6.1",
+    "aos": "^2.3.4",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "concurrently": "^5.0.0",
@@ -19,7 +20,7 @@
   "homepage": ":https://all-about-eve-team.github.io/all-about-eve/",
   "scripts": {
     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

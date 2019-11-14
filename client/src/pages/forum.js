@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import API from "../utils/API"
-import Card from '../components/Card';
+// import Card from '../components/Card';
 import Question from "../components/Question"
 import QuestionComment from "../components/QuestionComment"
 import axios from "axios"
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
+import { FormControl, InputGroup } from 'react-bootstrap';
+import '../forum_style.css'
+import { shape } from 'prop-types';
 
 class Forum extends Component {
     state = {
@@ -95,45 +98,51 @@ class Forum extends Component {
 
     render() {
         // const classes = useStyles();
-
         return (
-            <div>
-                <form>
-                    {/* // className={classes.container}
-                > */}
-                    {/* <div>
-                        <TextField
-                            id="standard-basic"
-                            className={classes.textField}
-                            label="Standard"
-                            margin="normal"
-                        />
-                    </div> */}
-                    <input
-                        name="title"
-                        type="text"
-                        value={this.state.title}
-                        onChange={this.handleInputChange}
-                        placeholder="Question" />
+            <div className="comment-page">
+                <div className="question-input">
+                    <form className="question-post">
+                        <InputGroup className="mb-3">
+                            <FormControl
+                                className="formcontrol"
+                                name="title"
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.handleInputChange}
+                                placeholder="Question" />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
 
-                    <input
-                        name="text"
-                        type="text"
-                        value={this.state.text}
-                        onChange={this.handleInputChange}
-                        placeholder="text" />
+                            <FormControl
+                                className="formcontrol"
+                                name="text"
+                                type="text"
+                                value={this.state.text}
+                                onChange={this.handleInputChange}
+                                placeholder="text" />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
 
-                    <input
-                        name="category"
-                        type="text"
-                        value={this.state.category}
-                        onChange={this.handleInputChange}
-                        placeholder="category" />
-                    <button onClick={this.handleFormSubmit}>Submit</button>
-                </form>
-                <div>
-                    {this.state.submittedQuestion.map(post => (
-                        <div>
+                            <FormControl
+                                className="formcontrol"
+                                name="category"
+                                type="text"
+                                value={this.state.category}
+                                onChange={this.handleInputChange}
+                                placeholder="category" />
+                        </InputGroup>
+                        <InputGroup className="mb-3">
+
+                            <button class="shape shape3" onClick={this.handleFormSubmit}
+                            // style={'center'}
+                            >Submit</button>
+                        </InputGroup>
+
+
+                    </form>
+                </div>
+                {this.state.submittedQuestion.map(post => (
+                    <div className="isthiscard" data-aos="flip-up">
                         <Question post={post.text}
                             title={post.title}
                             author={this.state.author}
@@ -142,19 +151,36 @@ class Forum extends Component {
                                 <QuestionComment text={comment.text} author={comment.author} />
                             ))}
                         />
-                        <form>
-                        <input
-                            name="commenttext"
-                            type="text"
-                            value={this.state.commenttext}
-                            onChange={this.handleInputChange}
-                            placeholder="Comment here!">
-                        </input>
-                        <button onClick={this.handleCommentSubmit}>Submit!</button>
-                    </form>
+                        <div className="accordian">
+                        <Accordion>
+                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                Click here to add a comment!
+                            </Accordion.Toggle>
+                            <div className="accordiancollapse">
+                            <Accordion.Collapse eventKey="0">
+                                <InputGroup className="mb-3">
+
+                                    <form>
+
+                                        <FormControl
+                                            name="commenttext"
+                                            type="text"
+                                            value={this.state.commenttext}
+                                            onChange={this.handleInputChange}
+                                            placeholder="Comment here!"
+                                        />
+
+
+                                        <button class="shape shape2" onClick={this.handleCommentSubmit}>GO</button>
+
+                                    </form>
+                                </InputGroup>
+                            </Accordion.Collapse>
+                        </div>
+                        </Accordion>
+                   </div>
                     </div>
-                    ))}
-                </div>
+                ))}
             </div>
         );
     }
