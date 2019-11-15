@@ -1,15 +1,14 @@
-import React, {Component} from 'react'
-import API from "../utils/API"
-import ArticleWrapper from "../components/ArticleWrapper"
-import TagWrapper from "../components/TagWrapper"
-import {finished} from "stream"
+import React, {Component} from "react";
+import API from "../utils/API";
+import ArticleWrapper from "../components/ArticleWrapper";
+import Tag from "../components/Tag";
 
 class Article extends Component {
   state = {
-    articles: [],
+                                                  //GGRE --> Should this be an empty string at first or is it okay to have it as an empty array???
     tags: [],
-    selectedTags: "",
-    validationError: ""
+    articles: [],
+    error: ""
   }
 
   componentDidMount() {
@@ -17,7 +16,8 @@ class Article extends Component {
     this.loadArticles();
     // Load all tags to be used later as filters
     this.loadTags();
-    //GGRE--> Test this next:  this.loadArticlesByTag();
+                                                   //GGRE--> Test this next!!!
+    // this.loadArticlesByTag();
   }
 
   loadArticles = () => {
@@ -25,7 +25,10 @@ class Article extends Component {
       .then(res => {
         //GGRE--> For debugging only
         console.log("res.data--> ", res.data);
-        // All articles
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+        // Grab all articles
         this.setState({
           articles: res.data
         })
@@ -38,24 +41,15 @@ class Article extends Component {
       .then(res => {
         //GGRE--> For debugging only
         console.log("res.data--> ", res.data);
-        // All tags
-        this.setState({
-          tags: res.data
-        })
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+        // Grab all tags
+        const tagsFromApi = res.data.map(tag => {return {value: tag, display: tag}});
+        this.setState({tags: [{value: "", display: "(Select at least one tag )"}].concat(tagsFromApi), error: ""});
       })
-      .catch(err => console.log(err));
-  };
-
-  loadArticlesByTags = () => {
-    API.getArticleTag()
-      .then(res => {
-        //GGRE--> For debugging only
-        console.log("res.data--> ", res.data);
-        // All articles filtered by tags
-        let tagsFromApi = res.data.map(tag => {return {value: tag, display: tag}})
-        this.setState({tags: [{value: "", display: "(Select at least one tag)"}].concat(tagsFromApi)});
-      })
-      .catch(err => console.log(err));
+      //.catch(err => console.log(err));
+      .catch(err => this.setState({error: err.message}));
   };
 
   render() {
@@ -64,18 +58,21 @@ class Article extends Component {
     return (
       <div>
         {loggedIn ? (
-          <div className="main-articles" >
-            <div className="tags-wrapper">
-              {/* GGRE--> Need to add form with dropdown to select multiple tags and pass them onto the tags wrapper as props */}
-              <TagWrapper tags={this.state.tags} />
+          this.state.articles.length ? (
+            <div className="main-articles" >
+              <div className="main-tags">
+                <Tag tags={this.state.tags} />
+              </div>
+              <div className="articles-wrapper">
+                <ArticleWrapper articles={this.state.articles} />
+              </div>
             </div>
-            <div className="articles-wrapper">
-              <ArticleWrapper articles={this.state.articles} />
-            </div>
-          </div>
+          ) : (
+              <h3>No Articles to Display!</h3>
+            )
         ) : (
-          <h1>You must be logged in to view this content.</h1>
-        )}
+            <h1>You must be logged in to view this content!</h1>
+          )}
       </div>
     )
   }

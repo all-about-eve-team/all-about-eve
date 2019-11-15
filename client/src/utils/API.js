@@ -43,7 +43,7 @@ export default {
     // Tags Collection
 	getTag: function () {
 		console.log("api get route TAGS is getting hit");
-		return axios.get("/api/articles/tags");
+		return axios.get("/api/tags");
     },
 	// Articles Collection
 	getArticle: function () {
@@ -54,6 +54,6 @@ export default {
 	getArticleTag: function(tags) {
         //GGRE--> For debugging only
 		console.log("tags--> ", tags.join(","));
-		return axios.get(`/api/articles/${tags}`);
+		return axios.get(`/api/tags/${tags}`);
     }
 }

@@ -5,12 +5,8 @@ const articleController = require("../../controllers/articleController");
 router.route("/")
   .get(articleController.findAll)
 
-// /api/articles/tags
-router.route("/tags")
-  .get(articleController.findByTag)
-
-// /api/articles/:tags
-router.route("/:tags")
-  .get(articleController.findByTag)
+// // /api/articles/:tags                           //GGRE--> Do I need this route for articles+tags?
+// router.route("/:tags")
+//   .get(articleController.findByTagArticle)
 
 module.exports = router;

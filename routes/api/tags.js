@@ -5,8 +5,8 @@ const tagController = require("../../controllers/tagController");
 router.route("/")
   .get(tagController.findAllTag)
 
-// Retrieving Articles filtered by Tags                     GGRE--> Should this be referenced in the articles controller???
-// /api/:tags
+// Retrieving Articles filtered by Tags                     //GGRE--> Shouldn't this be referenced in the articles controller???
+// /api/tags/:tags
 router.route("/:tags")
   .get(tagController.findByTagArticle)
 

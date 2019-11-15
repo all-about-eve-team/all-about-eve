@@ -5,8 +5,8 @@ function ArticleWrapper(props) {
   //GGRE--> For debugging only
   console.log("props.articles--> ", props.articles);
   return (
-    <div>
-      <br></br>
+    <div className="main-articles">
+      <h3>List of articles</h3>
       <ul className="list-articles">
         {props.articles.map(article => (
           <li key={article.itemId} className="list-article-item">

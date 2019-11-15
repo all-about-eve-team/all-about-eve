@@ -9,7 +9,7 @@ import Home from './pages/home'
 import Forum from "./pages/forum"
 import Period from "./pages/period"
 import ContactUs from './pages/contactus';
-import Article from "./pages/article"
+import Article from "./pages/article";
 import API from './utils/API'
 
 // need to see when getuser is getting called
@@ -96,6 +96,10 @@ class App extends Component {
         />
         <Route
           exact path="/articles"
+          render={(props) => <Article {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username} />}
+        />
+        <Route
+          exact path="/tags"
           render={(props) => <Article {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username} />}
         />
         <Route

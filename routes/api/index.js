@@ -11,7 +11,7 @@ router.use("/comments", commentRoutes);
 router.use("/posts", postRoutes);
 router.use("/periodposts", periodPostRoutes);
 router.use("/contactus", contactusRoutes);
-router.use("/articles", articlesRoutes);
+router.use("/articles", articleRoutes);
 router.use("/tags", tagRoutes);
 
 module.exports = router;
