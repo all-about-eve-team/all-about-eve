@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -66,10 +67,12 @@ app.post("/api/mail", (req, res)=>{
             }
         })
     var mailOptions = {
-        from: 'Eve <4allabouteve@gmail.com>',
-        to: 'Saikal <7saikal@gmail.com>',
-        subject: 'Nodemailer test',
-        text: 'Hello World!!'
+        // from: 'Eve <4allabouteve@gmail.com>',
+        from: req.body.email,
+        to:'Eve <4allabouteve@gmail.com>',
+        subject:"All About Eve User Comment",
+        // text: 'Hello World!!'
+        text:"Request from: " + req.body.name + " //Company Name: " + req.body.company +  " //User Email: " + req.body.email + "  //message: " + req.body.message
     }
     transporter.sendMail(mailOptions, function (err,res) {
         if(err) {

@@ -22,8 +22,9 @@ console.log(name, value);
 }
 handleFormSubmit = event => {
     event.preventDefault();
+    console.log(this.state);
     
-   axios.post("/api/mail")
+   axios.post("/api/mail", this.state)
     .then(response => console.log (response))
     .catch(error => console.log (error));
     
