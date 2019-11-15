@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Rubik', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Rubik&display=swap'); 
+   
+  }
+
+
+
+.dropdownDiv {
+height: 300px;
+overflow-y: scroll;
+font-family: 'Rubik', sans-serif;
+font-size: medium;
+}

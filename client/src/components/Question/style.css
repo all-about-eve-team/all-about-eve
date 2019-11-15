@@ -7,3 +7,19 @@
   margin-left: 29%;
   margin-top: 2%; */
 /* }  */
+@font-face {
+  font-family: 'Rubik', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Rubik&display=swap'); 
+ 
+}
+.huh { 
+  overflow-y: scroll;
+  height: 200px;
+  width: 600px;
+  margin-left: 15%;
+  font-family: 'Rubik', sans-serif;
+
+ 
+  
+  
+}
