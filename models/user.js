@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs');
 mongoose.promise = Promise
+require('mongoose-type-email');
 
 // Define userSchema
 const userSchema = new Schema({
@@ -14,8 +15,8 @@ const userSchema = new Schema({
     email: {
         type: String,
         unique: true,
-        require: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+        require: true
+        // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     }, 
     icon: { type: String, default: "../client/public/favicon.ico"},
     // documents belonging to other collections

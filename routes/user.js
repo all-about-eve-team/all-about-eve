@@ -9,6 +9,9 @@ router.post('/', (req, res) => {
     // const { username, password } = req.body
     const username = req.body.username;
     const password = req.body.password;
+    const email = req.body.email;
+    const icon = req.body.icon;
+    const age = req.body.age;
     console.log(username, password)
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
@@ -22,7 +25,10 @@ router.post('/', (req, res) => {
         else {
             const newUser = new User({
                 username: username,
-                password: password
+                password: password,
+                age: age,
+                icon: icon,
+                email: email
                 // new stuff goes here! age:age
             })
             newUser.save((err, savedUser) => {
@@ -53,12 +59,15 @@ router.post(
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
+    User.findOne({ username: username }, (err, user) => {
+        console.log(user)
     if (req.user) {
-        res.json({ user: req.user })
+        res.json({ user: user })
         console.log("user get route getting hit")
     } else {
         res.json({ user: null })
     }
+})
 })
 
 //nora playing around with this route

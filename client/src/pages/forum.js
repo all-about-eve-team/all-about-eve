@@ -53,7 +53,8 @@ class Forum extends Component {
     handleFormSubmit = e => {
         e.preventDefault();
         const newPost = {
-            author: this.state.authorid,
+            author: this.state.author,
+            authorid: this.state.authorid,
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
@@ -159,7 +160,7 @@ class Forum extends Component {
                                         <div>
                                             <Question post={post.text}
                                                 title={post.title}
-                                                author={this.state.author}
+                                                author={post.author}
                                                 category={post.category}
                                                 // here we loop through & display each post's comments:
                                                 

@@ -10,7 +10,8 @@ class Signup extends Component {
 			confirmPassword: '',
 			age: '',
 			email: '',
-			icon: ''
+			icon: '',
+			redirectTo: ""
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -20,11 +21,22 @@ class Signup extends Component {
 			[event.target.name]: event.target.value
 		})
 	}
-	handleSubmit(event) {
-		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
-		event.preventDefault()
 
+	// validate email function from: https://www.w3resource.com/javascript/form/email-validation.php
+	ValidateEmail(mail) 
+	{
+	 if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+	  {
+		return (true)
+	  }
+		alert("You have entered an invalid email address!")
+		return (false)
+	}
+
+	handleSubmit(event) {
+		event.preventDefault();
+		let validEmail = this.ValidateEmail(this.state.email);
+		(this.state.username && this.state.password && validEmail) ? (
 		//request to server to add a new username/password
 		axios.post('/user/', {
 			username: this.state.username,
@@ -35,7 +47,9 @@ class Signup extends Component {
 		})
 			.then(response => {
 				console.log(response)
-				if (!response.data.errmsg) {
+				console.log(response.data.errmsg)
+				
+				if (!response.data.errmsg || response.data.errmsg==="undefined") {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
@@ -48,6 +62,9 @@ class Signup extends Component {
 				console.log(error)
 
 			})
+		) : (
+			alert("Please enter a username, password, and e-mail.")
+		)
 	}
 
 
