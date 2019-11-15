@@ -125,7 +125,7 @@ class Forum extends Component {
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
-                <div className="is this card?">
+                <div className="isthiscard">
                     {this.state.submittedQuestion.map(post => (
                         <div>
                         <Question post={post.text}
