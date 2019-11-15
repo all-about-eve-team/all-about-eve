@@ -7,7 +7,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
 import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
-import '../forum_style.css'
+import '../forum_style.css';
+import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
 
 
@@ -73,11 +74,11 @@ class Forum extends Component {
         // reload the components so the new post displays
         this.componentDidMount()
     }
-
     pushonArray = value => {
         this.state.submittedTags.push(value);
         console.log(this.state.submittedTags)
     }
+  
 
     // this function handles the creation of a new comment
     handleCommentSubmit = e => {
@@ -158,12 +159,14 @@ class Forum extends Component {
                                         // style={'center'}
                                         >Submit</button>
                                     </InputGroup>
-                                    <DropdownButton id="dropdown-item-button" title="Dropdown button">
-                                        {/* /this is something to do when this button is clicked */}
-                                        <Dropdown.Item value="0" onClick={() => this.pushonArray("tag 1")}>Tag 1  </Dropdown.Item>
-                                        <Dropdown.Item value="1" onClick={() => this.pushonArray("tag 2")}>Tag 2</Dropdown.Item>
-                                        <Dropdown.Item value="2" onClick={() => this.pushonArray("tag 3")}>Tag 3</Dropdown.Item>
-                                    </DropdownButton>
+                                    
+                                    <TagSelection
+                                    pushonArray = {this.pushonArray}
+                                    value={this.value}
+                                    submittedTags={this.submittedTags}>
+
+                                    </TagSelection>
+
 
 
 
@@ -171,7 +174,7 @@ class Forum extends Component {
                             </div>
                             <div>
                                 {/* here we loop through every submitted question and display the posts along with their related comments */}
-                               
+
                                 {this.state.submittedQuestion.map(post => (
 
                                     <div className="questionwrapper">
@@ -183,13 +186,19 @@ class Forum extends Component {
                                                 category={post.category}
                                                 // here we loop through & display each post's comments:
                                                 //create an if else statement to be like "be the first to post a comment", student react router Book pages/Books
-                                                comments={post.comments.map(comment => (
+                                                comments={post.comments.length ? (post.comments.map(comment => (
                                                     <QuestionComment text={comment.text} author={comment.author} >
                                                         {this.props.children}
-                                                        </QuestionComment>
+                                                    </QuestionComment>
+
+                                                    // {if (this.props.comments > 0) ? 
+                                                    //     (this.props.comments): (<div>Be the first to post!</div>) }
                                                 )
                                                 )
-                                                }
+                                                ) : (
+                                                        <div>
+                                                            "Be the first to post!"</div>
+                                                    )}
                                             />
 
                                         </div>

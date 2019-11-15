@@ -29,7 +29,7 @@ const tagSeed = [
   {"name": "Physical Activity", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
   {"name": "Preeclampsia", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
   {"name": "Pregnancy", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
-  {"name": "uestions for the Doctor", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
+  {"name": "Questions for the Doctor", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
   {"name": "Screening Tests", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
   {"name": "Sexual Health", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())},
   {"name": "Women", "createdAt": new Date(Date.now()), "updatedAt": new Date(Date.now())}

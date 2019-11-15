@@ -22,13 +22,14 @@ Author: {props.author}
             {/* Comment:{this.props.comments} */}
             {/* </ul> */}
             <br></br>
-
-            Comments:
-            <div class="huh">
-           
-                    {props.comments}
-               
+            
+            {props.comments.length ? (
+            <div class="huh">     
+                    {props.comments}    
             </div>
+            ): (
+null
+            )}
 
 
          
