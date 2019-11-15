@@ -2,26 +2,38 @@ import React from "react";
 import "./style.css";
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
+// import { Row , Col, AccordionCollapse, AccordionToggle} from "react-bootstrap";
 
-function Question (props) {
-    return (
-        <div 
-        // className="card"
-         >
-        <h4>Question: {props.title}</h4>
-        {/* <ul> */}
-        Text: {props.post}
-        <br></br>
-        {/* <li>{this.props.author}</li> */}
-        Category: {props.category}
-        <br></br>
-        Author: {props.author}
-        {/* Comment:{this.props.comments} */}
-        {/* </ul> */}
-        <br></br>
-        Comments: {props.comments}
-       
-    </div>
+function Question(props) {
+            console.log(props.comments)
+return (
+        <div>
+            <h4>Question: {props.title}</h4>
+            {/* <ul> */}
+<hr></hr>
+Author: {props.author}
+<br></br>
+            Text: {props.post}
+            <br></br>
+            {/* <li>{this.props.author}</li> */}
+            Category: {props.category}
+            <br></br>
+            
+            {/* Comment:{this.props.comments} */}
+            {/* </ul> */}
+            <br></br>
+
+            Comments:
+            <div class="huh">
+           
+                    {props.comments}
+               
+            </div>
+
+
+         
+        </div>
+
     )
 }
 

@@ -7,3 +7,13 @@
   margin-left: 29%;
   margin-top: 2%; */
 /* }  */
+
+.huh { 
+  overflow-y: scroll;
+  height: 200px;
+  width: 600px;
+  margin-left: 15%;
+ 
+  
+  
+}
