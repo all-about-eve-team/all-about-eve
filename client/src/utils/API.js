@@ -15,7 +15,7 @@ export default {
         return axios.get("/api/productposts/")
     },
     updateProductPost: function(comment){
-        return axios.put(`/api/productposts/${comment.post}`, {comments: comment.commentid})
+        return axios.put(`/api/productposts/${comment.post}`, {productComments: comment.commentid})
     },
     getProductPostId: function(id){
         return axios.get(`/api/productposts/${id}`)

@@ -81,6 +81,7 @@ class Product extends Component {
             post: e.target.className
         }
         // API call to create the actual comment
+        console.log(newProductComment)
         API.createProductComment(newProductComment)
             .then(res => {
                 // the senderComment variable lets us grab data within the API calls
@@ -89,8 +90,10 @@ class Product extends Component {
                 senderComment.commentid = res.data._id
                 senderComment.text = res.data.text
                 senderComment.post = res.data.post
+                console.log(res.data)
                 // and lastly we set the commentsender state with our senderComment variable
                 this.setState({ commentsender: senderComment })
+                console.log(this.state.commentsender)
                 // and lastly we update the post the comment is tied to with all the new comment info so it will display when we populate the post with its comments
                 API.updateProductPost(this.state.commentsender)
                 // roload the components so the new comment displays

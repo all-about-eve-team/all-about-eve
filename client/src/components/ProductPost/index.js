@@ -18,7 +18,9 @@ function ProductPost (props) {
         {/* Comment:{this.props.comments} */}
         {/* </ul> */}
         <br></br>
-        Comments: {props.comments}
+        <div>
+        Comments: {props.productComments}
+        </div>
     </div>
     )
 }
