@@ -5,8 +5,9 @@ const articleController = require("../../controllers/articleController");
 router.route("/")
   .get(articleController.findAll)
 
-// // /api/articles/:tags                           //GGRE--> Do I need this route for articles+tags?
-// router.route("/:tags")
-//   .get(articleController.findByTagArticle)
+// Retrieving Articles filtered by Tags  
+// /api/articles/:tags
+router.route("/:tags")
+  get(articleController.findArticleByTag);
 
 module.exports = router;

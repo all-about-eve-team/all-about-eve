@@ -1,10 +1,12 @@
 import React, {Component} from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 import "./style.css";
-import axios from "axios";
-import ArticleWrapper from "../components/ArticleWrapper";
+import ArticleWrapper from "../ArticleWrapper";
 
 class Tag extends Component {
+  constructor(props) {
+    super (props)
+  }
   state = {
     tags: [],
     articles: [],
@@ -39,7 +41,7 @@ class Tag extends Component {
     return (
       <div>
         {loggedIn ? (
-          this.state.tags.length ? (
+          this.props.tags.length ? (
             <div className="main-articles" >
               <div className="list-tags">
                 <h3>Just to see if it works!</h3>

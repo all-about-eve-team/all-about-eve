@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = {
-  findAllTag: function (req, res) {
+  findAll: function (req, res) {
     //GGRE--> For debugging
     console.log("req.query--> ", req.query);
     db.Tag
