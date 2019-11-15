@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css"
 
-const PeriodProductImage = props => {
+const ProductImage = props => {
     return(
         <img src={props.image} alt={props.title}></img>
     )
 }
 
-export default PeriodProductImage;
+export default ProductImage;

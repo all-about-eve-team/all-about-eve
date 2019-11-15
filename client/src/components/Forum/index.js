@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import API from "../../utils/API"
-import Card from '../Card';
+// import Card from '../Card';
 import Question from "../Question"
 import QuestionComment from "../QuestionComment"
 import axios from "axios";
