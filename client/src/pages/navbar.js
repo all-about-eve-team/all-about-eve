@@ -45,8 +45,8 @@ class Navbar extends Component {
                                 <Link to="/forum" className="btn btn-link text-secondary">
                                     <span className="text-secondary">forum</span>
                                 </Link>
-                                <Link to="/period" username={user} className="btn btn-link text-secondary">
-                                    <span className="text-secondary">period</span>
+                                <Link to="/product" username={user} className="btn btn-link text-secondary">
+                                    <span className="text-secondary">product review</span>
                                 </Link>
                                 <Link to="/articles" username={user} className="btn btn-link text-secondary">
                                     <span className="text-secondary">articles</span>
