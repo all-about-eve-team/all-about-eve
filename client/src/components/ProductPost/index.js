@@ -10,11 +10,11 @@ function ProductPost (props) {
         Product Review: {props.post}
         <br></br>
         {/* <li>{this.props.author}</li> */}
-        Category: {props.category}
+        Category: {props.productCategory}
         <br></br>
         Author: {props.author}
         <br></br>
-        Product Image: <ProductImage title={props.title} image={props.image}/>
+        Product Image: <div><ProductImage title={props.title} image={props.image}/></div>
         {/* Comment:{this.props.comments} */}
         {/* </ul> */}
         <br></br>

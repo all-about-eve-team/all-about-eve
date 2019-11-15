@@ -70,7 +70,7 @@ router.get('/', (req, res, next) => {
 })
 })
 
-//nora playing around with this route
+// nora playing around with this route
 router.get("/:name", (req,res)=>{
     console.log("guess what my wacky route is getting hit")
     User.findOne({username: req.params.name}, "_id")

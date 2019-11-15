@@ -18,7 +18,7 @@ class Product extends Component {
         authorid: "",
         // the submittedProductPost state is what allows us to display all the posts:
         submittedProductPost: [],
-        postid: "",
+        post: "",
         commenttext: "",
         // the commentsender states allows us to send data from a new comment to update an individual post:
         commentsender: ""
@@ -78,7 +78,7 @@ class Product extends Component {
         let newProductComment = {
             text: this.state.commenttext,
             author: this.state.author,
-            postid: e.target.className
+            post: e.target.className
         }
         // API call to create the actual comment
         API.createProductComment(newProductComment)
@@ -88,7 +88,7 @@ class Product extends Component {
                 // now we update senderComment with data from teh response of the comment API call:
                 senderComment.commentid = res.data._id
                 senderComment.text = res.data.text
-                senderComment.postid = res.data.postid
+                senderComment.post = res.data.post
                 // and lastly we set the commentsender state with our senderComment variable
                 this.setState({ commentsender: senderComment })
                 // and lastly we update the post the comment is tied to with all the new comment info so it will display when we populate the post with its comments
@@ -155,7 +155,7 @@ class Product extends Component {
                                             placeholder="Product Image Link" />
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <button class="shape shape3" onClick={this.handleFormSubmit}
+                                        <button className="shape shape3" onClick={this.handleFormSubmit}
                                         // style={'center'}
                                         >Submit</button>
                                     </InputGroup>
@@ -171,8 +171,9 @@ class Product extends Component {
                                                 title={post.title}
                                                 author={post.author}
                                                 productCategory={post.productCategory}
+                                                image={post.image}
                                                 // here we loop through & display each post's comments:
-                                                comments={post.productComments.map(comment => (
+                                                productComments={post.productComments.map(comment => (
                                                     <ProductComment text={comment.text} author={comment.author} />
                                                 )
                                                 )}
