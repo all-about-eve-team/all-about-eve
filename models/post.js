@@ -8,9 +8,10 @@ const postSchema = new Schema({
     category: {type: String, required: true},
     date: {type: Date, default: Date.now},
     active: { type: Boolean, default: true},
+    author: {type: String},
     // documents belonging to other collections
     comments: [{type: Schema.Types.ObjectId, ref: "Comment"}],
-    author: {type: Schema.Types.ObjectId, ref: "User"}
+    authorid: {type: Schema.Types.ObjectId, ref: "User"}
 });
 
 const Post = mongoose.model("Post", postSchema);
