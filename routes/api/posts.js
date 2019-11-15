@@ -18,4 +18,7 @@ router
   .route("/:category")
   .get(postsController.findByCategory)
 
+
+
+
 module.exports = router;

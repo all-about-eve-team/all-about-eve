@@ -6,8 +6,9 @@ import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
-import '../forum_style.css'
+import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import '../forum_style.css';
+import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
 
 
@@ -23,7 +24,8 @@ class Forum extends Component {
         questionid: "",
         commenttext: "",
         // the commentsender states allows us to send data from a new comment to update an individual post:
-        commentsender: ""
+        commentsender: "",
+        submittedTags: []
     };
 
     componentDidMount() {
@@ -58,6 +60,7 @@ class Forum extends Component {
             title: this.state.title,
             text: this.state.text,
             category: this.state.category,
+            tags: this.state.submittedTags
         }
         API.createPost(newPost)
         this.setState(
@@ -65,11 +68,17 @@ class Forum extends Component {
                 title: "",
                 text: "",
                 category: "",
+
             }
         )
         // reload the components so the new post displays
         this.componentDidMount()
     }
+    pushonArray = value => {
+        this.state.submittedTags.push(value);
+        console.log(this.state.submittedTags)
+    }
+  
 
     // this function handles the creation of a new comment
     handleCommentSubmit = e => {
@@ -150,24 +159,46 @@ class Forum extends Component {
                                         // style={'center'}
                                         >Submit</button>
                                     </InputGroup>
+                                    
+                                    <TagSelection
+                                    pushonArray = {this.pushonArray}
+                                    value={this.value}
+                                    submittedTags={this.submittedTags}>
+
+                                    </TagSelection>
+
+
+
 
                                 </form>
                             </div>
                             <div>
                                 {/* here we loop through every submitted question and display the posts along with their related comments */}
+
                                 {this.state.submittedQuestion.map(post => (
+
                                     <div className="questionwrapper">
                                         <div>
-                                            <Question post={post.text}
+                                            <Question
+                                                post={post.text}
                                                 title={post.title}
                                                 author={post.author}
                                                 category={post.category}
                                                 // here we loop through & display each post's comments:
-                                                
-                                                comments={post.comments.map(comment =>(
-                                                    <QuestionComment text={comment.text} author={comment.author} />
+                                                //create an if else statement to be like "be the first to post a comment", student react router Book pages/Books
+                                                comments={post.comments.length ? (post.comments.map(comment => (
+                                                    <QuestionComment text={comment.text} author={comment.author} >
+                                                        {this.props.children}
+                                                    </QuestionComment>
+
+                                                    // {if (this.props.comments > 0) ? 
+                                                    //     (this.props.comments): (<div>Be the first to post!</div>) }
                                                 )
-                                               )}
+                                                )
+                                                ) : (
+                                                        <div>
+                                                            "Be the first to post!"</div>
+                                                    )}
                                             />
 
                                         </div>
@@ -189,7 +220,7 @@ class Forum extends Component {
                                                                 onChange={this.handleInputChange}
                                                                 placeholder="Comment here!"
                                                             />
-                                                            <button  className={post._id}  data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
+                                                            <button className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
 
                                                         </InputGroup>
                                                     </Accordion.Collapse>
@@ -203,6 +234,7 @@ class Forum extends Component {
                                             </Accordion>
                                         </div>
                                     </div>
+
                                 ))}
 
                             </div>
@@ -218,6 +250,6 @@ class Forum extends Component {
 
     }
 }
-    export default Forum;
+export default Forum;
 
 
