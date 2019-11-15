@@ -7,6 +7,9 @@ import image3 from '../images/3.jpg'
 import image4 from '../images/4.jpg'
 import image5 from '../images/5.jpg'
 import image6 from '../images/6.jpg'
+import image7 from '../images/7.jpg'
+import image8 from '../images/8.jpg'
+
 
 class Home extends Component {
 
@@ -16,7 +19,7 @@ class Home extends Component {
             width: 400
         }
         return (
-            
+
             <div>
                 <Parallax
                     blur={0}
@@ -24,11 +27,9 @@ class Home extends Component {
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                    {/* <div className="caption">
-                        <div className="border">AllAboutEve</div>
-                    </div> */}
+                    
 
-                    <div style={{ height: '400px' }} />
+                    <div style={{ height: '70vh' }} />
                 </Parallax>
 
                 <div className="text">
@@ -42,11 +43,9 @@ class Home extends Component {
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                    {/* <div className="caption">
-                        <div className="border">Period</div>
-                    </div> */}
+                    
 
-                    <div style={{ height: '400px' }} />
+                    <div style={{ height: '70vh' }} />
                 </Parallax>
 
                 <div className="text">
@@ -54,73 +53,101 @@ class Home extends Component {
                     <p>Your menstrual cycle can say a lot about your health. Understand how to start tracking your menstrual cycle and what to do about irregularities.
                     </p>
                 </div>
-
                 <Parallax
                     blur={0}
                     bgImage={image3}
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                     <div style={{ height: '400px' }} />
-                
-                    <div className="text">
-                        <h3>Birth control</h3>
-                        <p>Choosing a method of birth control can be difficult. Know the options and how to pick the type of contraception that's right for you.
-                </p>
-                    </div>
                     
+
+                    <div style={{ height: '70vh' }} />
                 </Parallax>
 
+                <div className="text">
+                    <h3>Birth control</h3>
+                    <p>Choosing a method of birth control can be difficult. Know the options and how to pick the type of contraception that's right for you.
+                    </p>
+                </div>
                 <Parallax
                     blur={0}
                     bgImage={image4}
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                    <div className="text">
-                        <h3>Pregnancy</h3>
-                        <p>Knowing what to expect during the full pregnancy term is important for monitoring both your health and the health of the baby.On average, a full-term pregnancy lasts 40 weeks. There are many factors that can affect a pregnancy. Women who receive an early pregnancy diagnosis and prenatal care are more likely to experience a healthy pregnancy and give birth to a healthy baby.
-                </p>
-                    </div>
-                    <div style={{ height: '400px' }} />
+                    
+
+                    <div style={{ height: '70vh' }} />
                 </Parallax>
+
+                <div className="text">
+                    <h3>Pregnancy</h3>
+                    <p>Knowing what to expect during the full pregnancy term is important for monitoring both your health and the health of the baby.On average, a full-term pregnancy lasts 40 weeks. There are many factors that can affect a pregnancy. Women who receive an early pregnancy diagnosis and prenatal care are more likely to experience a healthy pregnancy and give birth to a healthy baby.
+                    </p>
+                </div>
                 <Parallax
                     blur={0}
                     bgImage={image5}
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                    <div className="text">
+                    
+
+                    <div style={{ height: '90vh' }} />
+                </Parallax>
+
+                <div className="text">
                     <h3>Breast-feeding</h3>
                     <p>The benefits of breast-feeding are well established. Consider ways to support breast-feeding — and how to handle feelings of guilt if you can't or decide not to breast-feed.</p>
-                    </div>
-                    <div style={{ height: '400px' }} />
-                </Parallax>
-                <h3>Menopause</h3>
-                <p>Menopause is a natural biological process. But the physical symptoms, such as hot flashes, and emotional symptoms of menopause may disrupt your sleep, lower your energy or affect emotional health. There are many effective treatments available, from lifestyle adjustments to hormone therapy.</p>
+                </div>
+
                 <Parallax
                     blur={0}
                     bgImage={image6}
                     bgImageAlt="the cat"
                     strength={200}
                 >
-                    <div className="text">
+                    
+
+                    <div style={{ height: '70vh' }} />
+                </Parallax>
+
+                <div className="text">
+                    <h3>Menopause</h3>
+                    <p>Menopause is a natural biological process. But the physical symptoms, such as hot flashes, and emotional symptoms of menopause may disrupt your sleep, lower your energy or affect emotional health. There are many effective treatments available, from lifestyle adjustments to hormone therapy.</p>
+                </div>
+
+                <Parallax
+                    blur={0}
+                    bgImage={image7}
+                    bgImageAlt="the cat"
+                    strength={200}
+                >
+                    
+
+                    <div style={{ height: '70vh' }} />
+                </Parallax>
+
+                <div className="text">
                     <h3>Your Community</h3>
                     <p>Community health are environmental, social, and economic resources to sustain emotional and physical well being among Women in ways that advance their aspirations and satisfy their needs in their unique environment.</p>
-                    </div>
-            <div style={{ height: '400px' }} />
-                </Parallax>
-                <h3>Health Articles</h3>
-                <p>Learn about the latest health issues and medical breakthroughs, with expert news and features on everything from medical treatments to mental health.</p>
+                </div>
+
                 <Parallax
                     blur={0}
-                    bgImage={image6}
+                    bgImage={image8}
                     bgImageAlt="the cat"
                     strength={200}
                 >
-
-                    <div style={{ height: '400px' }} />
+                    
+                    <div style={{ height: '75vh' }} />
                 </Parallax>
+
+                <div className="text">
+                    <h3>Health Articles</h3>
+                    <p>Learn about the latest health issues and medical breakthroughs, with expert news and features on everything from medical treatments to mental health.</p>
+                </div>
+
 
             </div>
         )

@@ -96,6 +96,7 @@ h3 {
   text-align: center;
   padding: 50px 80px;
   text-align: justify;
+  width: 100%;
 }
 .react-parallax-content {
   position: relative;
