@@ -8,10 +8,10 @@
 }
 
 .App-header {
-  background-color: blue;
+  background-color: #FEDBD0;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #442C2E;
 }
 
 .App-title {
@@ -26,7 +26,13 @@
  
   margin-top: auto;
   
+  
 }
+
+.text-secondary{
+color: #442C2E;
+}
+
 #top-filler {
   margin-bottom: auto;
 }
@@ -49,7 +55,7 @@ body, html {
   height: 100%;
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
-  color: #777;
+  color:#442C2E;
 }
 
 
@@ -74,8 +80,8 @@ body, html {
 }
 
 .caption .border {
-  background-color: gray;
-  color: #fff;
+  background-color: #FEDBD0;
+  color: #442C2E;
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
@@ -86,13 +92,13 @@ h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
   font: 20px "Lato", sans-serif;
-  color: #111111;
+  color:#442C2E;
   text-align:center;
 }
 
 .text {
-  color: #777777;
-  background-color: #ffffff;
+  color: #442C2E;
+  background-color:  #FEFEFE;
   text-align: center;
   padding: 50px 80px;
   text-align: justify;
