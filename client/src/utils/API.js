@@ -8,28 +8,29 @@ export default {
     getPost: function(){
         return axios.get("/api/posts")
     },
-    createPeriodPost: function(postData){
-        console.log(postData)
-        return axios.post("/api/periodposts", postData)
+    createProductPost: function(postData){
+        return axios.post("/api/productposts/", postData)
     },
-    getPeriodPost: function(){
-        console.log("api get route is getting hit")
-        return axios.get("/api/periodposts/")
+    getProductPost: function(){
+        return axios.get("/api/productposts/")
+    },
+    updateProductPost: function(comment){
+        return axios.put(`/api/productposts/${comment.post}`, {comments: comment.commentid})
+    },
+    getProductPostId: function(id){
+        return axios.get(`/api/productposts/${id}`)
     },
     createComment: function(postData){
         console.log(postData)
         return axios.post("/api/comments", postData)
     },
-   
+    createProductComment: function(postData){
+        return axios.post("/api/productcomments", postData)
+    },
     updatePost: function(comment){
-        console.log(comment)
-        console.log(comment.post)
-        console.log(comment.commentid)
-        // hardcoding comment id to test
         return axios.put(`/api/posts/${comment.post}`, {comments: comment.commentid})
     },
     getPostId: function(id){
-        console.log(id)
         return axios.get(`/api/posts/${id}`)
     },
     updateUserPost: function(userid,postid){

@@ -29,9 +29,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     update: function (req, res) {
-        console.log(req.params.id)
-        console.log("this is the info we're sending:")
-        console.log(req.body)
         db.Post
             .findOneAndUpdate({ _id: req.params.id }, {$push: req.body }, { new: true })
             .then(dbModel => res.json(dbModel))

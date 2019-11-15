@@ -7,10 +7,10 @@ import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Home from './pages/home'
 import Forum from "./pages/forum"
-import Period from "./pages/period"
 import ContactUs from './pages/contactus';
 import Article from "./pages/article"
 import API from './utils/API'
+import Product from "./pages/product"
 
 // need to see when getuser is getting called
 
@@ -90,9 +90,9 @@ class App extends Component {
           render={(props) => <Forum {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username} />}
         />
         <Route
-          exact path="/period"
+          exact path="/product"
           // the below allows me to send the user as a prop when they go to the period page!
-          render={(props) => <Period {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
+          render={(props) => <Product {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
         />
         <Route
           exact path="/articles"
