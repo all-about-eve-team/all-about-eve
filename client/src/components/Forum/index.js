@@ -100,20 +100,9 @@ class Forum extends Component {
         // const classes = useStyles();
 
         return (
-            <div className="forumbackground" 
-            // style= {{backgroundColor:'red'}}
-            >
+            <div className="forumbackground">
                 <form>
-                    {/* // className={classes.container}
-                > */}
-                    {/* <div>
-                        <TextField
-                            id="standard-basic"
-                            className={classes.textField}
-                            label="Standard"
-                            margin="normal"
-                        />
-                    </div> */}
+                  
                     <input
                         name="title"
                         type="text"
@@ -136,7 +125,7 @@ class Forum extends Component {
                         placeholder="category" />
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
-                <div>
+                <div className="is this card?">
                     {this.state.submittedQuestion.map(post => (
                         <div>
                         <Question post={post.text}

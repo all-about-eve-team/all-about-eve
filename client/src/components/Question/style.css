@@ -13,13 +13,19 @@
  
 }
 .huh { 
+  font-family: 'Rubik', sans-serif;
   overflow-y: scroll;
   height: 200px;
   width: 600px;
   margin-left: 15%;
+  border: solid;
+  border-color: #FEDBD0;
+  
+}
+h4 {
   font-family: 'Rubik', sans-serif;
 
- 
-  
-  
+}
+body {
+  font-family: 'Rubik', sans-serif;
 }

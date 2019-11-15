@@ -6,14 +6,14 @@ import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-b
 function QuestionComment(props) {
     return (
         <div>
-        <hr></hr>
+        
                 <ul>
                 Comment from {props.author}: 
                
                 <li>{props.text}</li>
                 
                 
-                </ul></div>
+                </ul><hr></hr></div>
             
     )
 }
