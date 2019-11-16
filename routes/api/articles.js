@@ -8,6 +8,6 @@ router.route("/")
 // Retrieving Articles filtered by Tags
 // /api/articles/:tags
 router.route("/:tags")
-get(articleController.findArticleByTag);
+  .get(articleController.findArticleByTag);
 
 module.exports = router;
