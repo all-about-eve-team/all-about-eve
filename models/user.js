@@ -2,28 +2,26 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs');
 mongoose.promise = Promise
-require('mongoose-type-email');
 
 // Define userSchema
 const userSchema = new Schema({
-
+    // reqired entries
     username: { type: String, unique: true, required: true },
     password: { type: String, unique: false, required: true },
-    // new stuff goes here!! age:{type: Number}
     active: { type: Boolean, default: true },
-    age: { type: Number },
     email: {
         type: String,
         unique: true,
         require: true
-        // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     }, 
+    // entries not currenlty required
+    age: { type: Number },
     icon: { type: String, default: "../client/public/favicon.ico"},
     // documents belonging to other collections
     posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
-    periodPosts: [{type: Schema.Types.ObjectId, ref: "./PeriodPost"}],
-    periodComments: [{type: Schema.Types.ObjectId, ref: "./periodcomment"}]
+    productPosts: [{type: Schema.Types.ObjectId, ref: "ProductPost"}],
+    productComments: [{type: Schema.Types.ObjectId, ref: "ProductComment"}]
 })
 
 // Define schema methods

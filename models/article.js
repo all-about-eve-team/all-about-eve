@@ -26,7 +26,6 @@ const articleSchema = new Schema({
   "createdAt": {type: Date, default: Date.now},
   "updatedAt": {type: Date, default: Date.now},
   "tags": {type: Array}
-  // documents belonging to other collections
 });
 
 const Article = mongoose.model("Article", articleSchema);
