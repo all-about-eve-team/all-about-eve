@@ -7,6 +7,9 @@ export default {
     userLogin: function(postData){
         return axios.post("/user/login", postData)
     },
+    userLogout: function(){
+        return axios.post("/user/logout")
+    },
     createPost: function(postData){
         console.log(postData);
         return axios.post("/api/posts", postData);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css';
-import axios from 'axios'
+import API from "../utils/API"
 
 class Navbar extends Component {
     constructor() {
@@ -11,9 +11,7 @@ class Navbar extends Component {
 
     logout(event) {
         event.preventDefault()
-        console.log('logging out')
-        axios.post('/user/logout').then(response => {
-            console.log(response.data)
+        API.userLogout().then(response => {
             if (response.status === 200) {
                 this.props.updateUser({
                     loggedIn: false,
@@ -21,14 +19,11 @@ class Navbar extends Component {
                 })
             }
         }).catch(error => {
-            console.log('Logout error')
         })
     }
 
     render() {
         const loggedIn = this.props.loggedIn;
-        console.log('navbar render, props: ')
-        console.log(this.props);
         const user = this.props.user
         
 
