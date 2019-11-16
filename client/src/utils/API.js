@@ -4,6 +4,9 @@ export default {
     getUserInfo: function(user){
         return axios.get(`/user/${user}`)
     },
+    userLogin: function(postData){
+        return axios.post("/user/login", postData)
+    },
     createPost: function(postData){
         console.log(postData);
         return axios.post("/api/posts", postData);
