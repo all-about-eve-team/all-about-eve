@@ -5,8 +5,10 @@ import ProductPost from "../components/ProductPost"
 import axios from "axios"
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
-import '../product_style.css'
+import { FormControl, InputGroup, Dropdown, Alert } from 'react-bootstrap';
+import '../product_style.css';
+import { Link } from 'react-router-dom'
+
 
 class Product extends Component {
     state = {
@@ -224,8 +226,22 @@ class Product extends Component {
                 )
                     :
                     (
-                        <h1>You must be logged in to view this content.</h1>
-                    )}
+                        // <h1>You must be logged in to view this content.</h1>
+<Alert variant="danger" dismissible>
+                                  <Alert.Heading>Oh snap! You're not logged in!</Alert.Heading>
+                                  <p>
+                                  <Link to="/" className="btn btn-link text-secondary">
+                                        <span className="text-secondary">See what we're about</span>
+                                    </Link>
+                                    <Link to="/login" className="btn btn-link text-secondary">
+                                        <span className="text-secondary">Login!</span>
+                                    </Link>
+                                    <Link to="/signup" className="btn btn-link">
+                                        <span className="text-secondary">Sign-up!</span>
+                                    </Link>
+                                    
+                                  </p>
+                                </Alert>                    )}
             </div>)
 
     }

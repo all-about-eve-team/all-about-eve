@@ -6,7 +6,7 @@ import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import { FormControl, InputGroup, Alert, Dropdown, DropdownButton, Card } from 'react-bootstrap';
 import '../forum_style.css';
 import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
@@ -244,7 +244,19 @@ class Forum extends Component {
                 )
                     :
                     (
-                        <h1>You must be logged in to view this content.</h1>
+                        // <h1>You must be logged in to view this content.</h1>
+                        
+                                <Alert variant="danger" dismissible>
+                                  <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+                                  <p>
+                                    Change this and that and try again. Duis mollis, est non commodo
+                                    luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                                    Cras mattis consectetur purus sit amet fermentum.
+                                  </p>
+                                </Alert>
+                             
+                          
+                        //   render(<AlertDismissibleExample />)
                     )}
             </div>)
 
