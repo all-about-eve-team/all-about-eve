@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+    getUserInfo: function(user){
+        return axios.get(`/user/${user}`)
+    },
     createPost: function(postData){
         console.log(postData);
         return axios.post("/api/posts", postData);
