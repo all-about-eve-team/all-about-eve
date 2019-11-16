@@ -55,15 +55,6 @@ router.get('/', (req, res, next) => {
 })
 })
 
-router.get("/:name", (req,res)=>{
-    User.findOne({username: req.params.name}, "_id")
-    .then(dbModel => {
-        res.json(dbModel)
-        console.log(res.json(dbModel))
-    })
-    .catch(err => res.status(422).json(err));
-})
-
 router.put("/:id",(req,res)=>{
     User.findOneAndUpdate({_id:req.params.id}, {$push: req.body }, { new: true })
     .then(dbModel=>{
