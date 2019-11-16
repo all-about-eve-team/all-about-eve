@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import API from "../utils/API"
 import ProductComment from "../components/ProductComment"
 import ProductPost from "../components/ProductPost"
-import axios from "axios"
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
 import { FormControl, InputGroup, Dropdown } from 'react-bootstrap';
@@ -26,7 +25,7 @@ class Product extends Component {
 
     componentDidMount() {
 
-        axios.get('/user/' + this.state.author).then(res => {
+        API.getUserInfo(this.state.author).then(res => {
             // the below allows us to grab the user id reference in new posts and comments. we set this state at the beginning so that we can send it when new posts/comments are created
             this.setState({ authorid: res.data._id })
         }).catch(err => console.log(err))
