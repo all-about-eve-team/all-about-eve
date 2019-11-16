@@ -10,6 +10,8 @@ import { FormControl, InputGroup, Alert, Dropdown, DropdownButton, Card } from '
 import '../forum_style.css';
 import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
+import AOS from 'aos'
+
 
 
 class Forum extends Component {
@@ -29,7 +31,7 @@ class Forum extends Component {
     };
 
     componentDidMount() {
-
+        // AOS.init();
         axios.get('/user/' + this.state.author).then(res => {
             // the below allows us to grab the user id reference in new posts and comments. we set this state at the beginning so that we can send it when new posts/comments are created
             this.setState({ authorid: res.data._id })
@@ -177,8 +179,10 @@ class Forum extends Component {
 
                                 {this.state.submittedQuestion.map(post => (
 
-                                    <div className="questionwrapper">
-                                        <div>
+                                    <div className="questionwrapper" data-aos="flip-up" data-aos-duration = "1500" 
+                                    data-aos-easing = "linear"
+                                    >
+                                        <div >
                                             <Question
                                                 post={post.text}
                                                 title={post.title}

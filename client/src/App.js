@@ -10,7 +10,8 @@ import Forum from "./pages/forum"
 import ContactUs from './pages/contactus';
 import Article from "./pages/article"
 import API from './utils/API'
-import Product from "./pages/product"
+import Product from "./pages/product";
+import AOS from 'aos';
 
 // need to see when getuser is getting called
 
@@ -33,6 +34,8 @@ class App extends Component {
     console.log("running getUser below")
     //nora commenting getuser out for now
     // this.getUser()
+
+    AOS.init();
   }
 
   updateUser(userObject) {
