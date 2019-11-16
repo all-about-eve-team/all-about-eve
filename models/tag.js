@@ -6,7 +6,6 @@ const tagSchema = new Schema({
   "name": {type: String, required: true},
   "createdAt": {type: Date, default: Date.now},
   "updatedAt": {type: Date, default: Date.now}
-  // documents belonging to other collections
 });
 
 const Tag = mongoose.model("Tag", tagSchema);
