@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const commentRoutes = require("./comments");
 const postRoutes = require("./posts");
-const articlesRoutes = require("./articles");
+const contactusRoutes = require("./contactus")
+const articleRoutes = require("./articles");
+const tagRoutes = require("./tags");
 const productPostRoutes = require("./productposts");
 const productCommentRoutes = require("./productcomments")
 
@@ -9,7 +11,9 @@ const productCommentRoutes = require("./productcomments")
 router.use("/comments", commentRoutes);
 router.use("/posts", postRoutes);
 router.use("/productposts", productPostRoutes);
-router.use("/articles", articlesRoutes);
+router.use("/contactus", contactusRoutes);
+router.use("/articles", articleRoutes);
+router.use("/tags", tagRoutes);
 router.use("/productcomments",productCommentRoutes);
 
 module.exports = router;

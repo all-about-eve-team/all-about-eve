@@ -99,6 +99,10 @@ class App extends Component {
           render={(props) => <Article {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username} />}
         />
         <Route
+          exact path="/tags"
+          render={(props) => <Article {...props} getUser={this.getUser} loggedIn={this.state.loggedIn} username={this.state.username} />}
+        />
+        <Route
           path="/login"
           render={() =>
             <LoginForm
@@ -111,10 +115,10 @@ class App extends Component {
             <Signup />}
         />
         <Route
-        path="/contactus"
-        render={() =>
-          <ContactUs />}
-          />
+          path="/contactus"
+          render={() =>
+            <ContactUs />}
+        />
 
       </div>
     );

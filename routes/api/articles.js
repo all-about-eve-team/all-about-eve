@@ -5,8 +5,9 @@ const articleController = require("../../controllers/articleController");
 router.route("/")
   .get(articleController.findAll)
 
+// Retrieving Articles filtered by Tags
 // /api/articles/:tags
 router.route("/:tags")
-  .get(articleController.findByTag)
+get(articleController.findArticleByTag);
 
 module.exports = router;
