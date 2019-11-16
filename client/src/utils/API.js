@@ -10,6 +10,9 @@ export default {
     userLogout: function(){
         return axios.post("/user/logout")
     },
+    userSignup: function(postData){
+        return axios.post("/user", postData);
+    },
     createPost: function(postData){
         console.log(postData);
         return axios.post("/api/posts", postData);

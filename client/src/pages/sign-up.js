@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router'
-import axios from 'axios'
+import API from "../utils/API"
 
 class Signup extends Component {
 	constructor() {
@@ -39,7 +39,7 @@ class Signup extends Component {
 		let validEmail = this.ValidateEmail(this.state.email);
 		(this.state.username && this.state.password && validEmail) ? (
 		//request to server to add a new username/password
-		axios.post('/user/', {
+		API.userSignup({
 			username: this.state.username,
 			password: this.state.password,
 			age: this.state.age,
@@ -47,11 +47,7 @@ class Signup extends Component {
 			icon: this.state.icon
 		})
 			.then(response => {
-				console.log(response)
-				console.log(response.data.errmsg)
-				
 				if (!response.data.errmsg || response.data.errmsg==="undefined") {
-					console.log('successful signup')
 					this.props.history.push('/login')
 				} else {
 					console.log('username already taken')
