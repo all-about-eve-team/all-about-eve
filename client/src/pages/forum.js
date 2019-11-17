@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import API from "../utils/API"
 import Question from "../components/Question"
 import QuestionComment from "../components/QuestionComment"
-import axios from "axios"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
@@ -20,7 +19,7 @@ class Forum extends Component {
         text: "",
         category: "",
         author: this.props.username,
-        authorid: "",
+        authorid: this.props._id,
         // the submittedQuestion state is what allows us to display all the posts:
         submittedQuestion: [],
         questionid: "",
@@ -31,12 +30,6 @@ class Forum extends Component {
     };
 
     componentDidMount() {
-        // AOS.init();
-        axios.get('/user/' + this.state.author).then(res => {
-            // the below allows us to grab the user id reference in new posts and comments. we set this state at the beginning so that we can send it when new posts/comments are created
-            this.setState({ authorid: res.data._id })
-        }).catch(err => console.log(err))
-        // here we do an API call to display all the posts
         API.getPost()
             .then(res => {
                 this.setState({

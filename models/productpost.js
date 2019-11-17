@@ -1,3 +1,5 @@
+// schema for posts on the Product page
+
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 

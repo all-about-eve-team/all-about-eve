@@ -6,7 +6,6 @@ const categorySchema = new Schema({
   "name": {type: String, required: true},
   "createdAt": {type: Date, default: Date.now},
   "updatedAt": {type: Date, default: Date.now}
-  // documents belonging to other collections
 });
 
 const Category = mongoose.model("Category", categorySchema);

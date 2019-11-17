@@ -1,3 +1,5 @@
+// schema for posts on the Forum page
+
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 

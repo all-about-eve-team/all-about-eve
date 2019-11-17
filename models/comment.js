@@ -1,3 +1,5 @@
+// comment model for the Forum page
+
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
