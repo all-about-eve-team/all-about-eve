@@ -170,10 +170,13 @@ class Product extends Component {
                                                 productCategory={post.productCategory}
                                                 image={post.image}
                                                 // here we loop through & display each post's comments:
-                                                productComments={post.productComments.map(comment => (
-                                                    <ProductComment text={comment.text} author={comment.author} />
-                                                )
-                                                )}
+                                                productComments={post.productComments.length ? (post.productComments.map(comment => (
+                                                    <ProductComment text={comment.text} author={comment.author} data-aos="flip-up"/>
+                                                ))
+                                                ):(<div>
+                                                    "Be the first to post!"
+                                                    
+                                                    </div>)}
                                             />
 
                                         </div>
