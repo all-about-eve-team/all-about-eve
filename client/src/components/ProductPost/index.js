@@ -8,36 +8,42 @@ import Col from 'react-bootstrap/Col';
 function ProductPost (props) {
     return (
         <div>
-        <br></br>
-        <h3>Product Name: {props.title}</h3>
-        {/* <ul> */}
+            <br></br>
+        <h3>Product: <a href={props.productLink} target="_blank" rel="noopener noreferrer">{props.title}</a></h3>
         <hr></hr>
         <Container>
             <Row>
-                <Col>
-                
-            
-        
+                <div className="review">
         Product Review: {props.post}
         <br></br>
-        {/* <li>{this.props.author}</li> */}
-        </Col>
-        <Col>
+        </div>
+        <br></br>
+        <br></br>
+        </Row>
+        <Row>
+            <Col>
         Category: {props.productCategory}
         <br></br>
+        </Col>
+        <Col>
         Author: {props.author}
         <br></br>
-        Product Image: <div><ProductImage title={props.title} image={props.image}/></div>
-        {/* Comment:{this.props.comments} */}
-        {/* </ul> */}
-       </Col> 
-       </Row>
+        </Col>
+        </Row>
+        <Row>
+        <div className="review"><ProductImage title={props.title} image={props.image}/></div>
+        </Row>
         </Container>
         <br></br>
-        <div className="commentsBox">
-        Comments: {props.productComments}
+        
+        {props.productComments.length ? (
+                <div class="huh">
+                    {props.productComments}
+                </div>
+            ) : (
+                    null
+                )}
         </div>
-    </div>
     )
 }
 

@@ -5,7 +5,7 @@ import QuestionComment from "../components/QuestionComment"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup, Alert, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import { Container, FormControl, InputGroup, Alert, Dropdown, DropdownButton, Card } from 'react-bootstrap';
 import '../forum_style.css';
 import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
@@ -191,10 +191,11 @@ class Forum extends Component {
                                                 // here we loop through & display each post's comments:
                                                 //create an if else statement to be like "be the first to post a comment", student react router Book pages/Books
                                                 comments={post.comments.length ? (post.comments.map(comment => (
+                                                    <Container>
                                                     <QuestionComment text={comment.text} author={comment.author} data-aos="flip-up">
                                                         {this.props.children}
                                                     </QuestionComment>
-
+                                                    </Container>
                                                     // {if (this.props.comments > 0) ? 
                                                     //     (this.props.comments): (<div>Be the first to post!</div>) }
                                                 )

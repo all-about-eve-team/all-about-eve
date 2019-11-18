@@ -1,9 +1,18 @@
 import React from "react";
 import "./style.css";
+import { Container} from 'react-bootstrap';
 
 function ProductComment (props) {
+    const spanStyle = {
+        fontWeight: "bold"
+    }
     return (
-        <li>Comment from {props.author}: {props.text}</li>
+        <div>
+        <Container>
+            <span style={spanStyle}>{props.author}</span>:      {props.text}
+            <hr></hr>
+        </Container>
+    </div>
     )
 }
 

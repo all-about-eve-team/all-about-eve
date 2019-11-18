@@ -16,11 +16,14 @@ body{
   height: 80px;
 }
 
-.App-header {
+Nav {
   background-color: #DF7160;
-  height: 150px;
-  padding: 20px;
+  /* height: 150px; */
+  /* padding: 20px; */
   color: #FEFEFE;
+  margin-top: auto;
+  font-family: 'Rubik', sans-serif;
+/* color:#442C2E */
 }
 
 .App-title {
@@ -31,27 +34,39 @@ body{
   font-size: large;
 }
 
-.navbar {
+/* .navbar {
  
   margin-top: auto;
   font-family: 'Rubik', sans-serif;
 color:#442C2E
   
   
-}
+} */
 
 .navbar-section  {
-color: #442C2E;
+/* color: #442C2E; */
+margin-top: auto;
 }
 
 #top-filler {
-  margin-bottom: auto;
+  margin: auto;
 }
 
-#nav-container {
+.nav-container {
   align-items: flex-end;
 }
 
+#responsive-navbar-nav {
+  background-color: #DF7160;
+}
+
+#responsive-navbar-nav-right{
+  text-align: right;
+}
+
+/* .contactNav{
+  float:right;
+} */
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -70,9 +85,9 @@ body, html {
   color:#442C2E;
 }
 
-img {
-  /* height: 00px; */
-}
+/* img {
+  height: 00px;
+} */
 
 .caption {
   display: -webkit-box;
@@ -124,5 +139,4 @@ h3 {
   align-items: center;
   justify-content: center;
 }
-
 

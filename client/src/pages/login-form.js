@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import API from "../utils/API"
+import Container from "react-bootstrap/Container";
 
 class LoginForm extends Component {
     constructor() {
@@ -23,15 +24,12 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log('handleSubmit')
 
         API.userLogin({
                 username: this.state.username,
                 password: this.state.password
             })
             .then(response => {
-                console.log('login response: ')
-                console.log(response)
                 if (response.status === 200) {
                     // update App.js state
                     this.props.updateUser({
@@ -40,16 +38,13 @@ class LoginForm extends Component {
                         // nora used the below instead to make it say 'join the party evie'
                         username: this.state.username
                     })
-                    console.log(this.state.username)
                     // update the state to redirect to home
                     this.setState({
                         redirectTo: '/'
                     })
                 }
             }).catch(error => {
-                console.log('login error: ')
                 console.log(error);
-
             })
     }
 
@@ -59,6 +54,7 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                    <Container>
                     <h4>Login</h4>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -99,6 +95,7 @@ class LoginForm extends Component {
                                 type="submit">Login</button>
                         </div>
                     </form>
+                    </Container>
                 </div>
             )
         }

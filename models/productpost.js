@@ -12,6 +12,7 @@ const productPostSchema = new Schema({
     image: {type: String, required: true},
     productCategory: {type: String, required: true},
     author: {type: String},
+    productLink: {type: String},
     // documents belonging to other collections
     productComments: [{type: Schema.Types.ObjectId, ref: "ProductComment"}],
     authorid: {type: Schema.Types.ObjectId, ref: "User"}

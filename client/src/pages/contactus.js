@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Form from "../components/Form"
-import axios from "axios"
 import "./contact.css"
+import API from "../utils/API"
 
 class ContactUs extends Component {
 
@@ -18,13 +18,11 @@ handleInputChange = (event) =>{
     this.setState({
         [name]:value
     })
-console.log(name, value);
 }
 handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     
-   axios.post("/api/mail", this.state)
+   API.emailPost(this.state)
     .then(response => console.log (response))
     .catch(error => console.log (error));
     

@@ -1,3 +1,29 @@
+@font-face {
+    font-family: 'Rubik', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Rubik&display=swap'); 
+   
+  }
+  .huh { 
+    font-family: 'Rubik', sans-serif;
+    overflow-y: scroll;
+    margin-left:10%;
+    margin-right: 10%;
+    border: solid;
+    border-color: #FEDBD0;
+  }
+  body {
+    font-family: 'Rubik', sans-serif;
+  }
+  hr {
+    border-color: red;
+  }
+  h3 {
+    font-family:'Rubik', sans-serif; ;
+   font-style: italic;
+  }
+  .review{
+      margin: auto;
+  }
 .commentsBox {
         font-family: 'Rubik', sans-serif;
         overflow-y: scroll;
