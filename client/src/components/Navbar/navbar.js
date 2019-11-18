@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../logo.svg';
+// simport logo from '../logo.svg';
 import '../App.css';
-import axios from 'axios'
+import axios from 'axios';
+// import logo from '../Navbar/logo.png'
+
 
 class Navbar extends Component {
     constructor() {
@@ -65,7 +67,6 @@ class Navbar extends Component {
                     </div>
                     <div className="col-4 col-mr-auto">
                         <div id="top-filler"></div>
-                        <img src={logo} className="App-logo" alt="logo" />
                         <h1 className="App-title">All About Eve</h1>
                     </div>
                 </header>
