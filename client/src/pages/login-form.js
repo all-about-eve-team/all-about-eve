@@ -23,15 +23,12 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log('handleSubmit')
 
         API.userLogin({
                 username: this.state.username,
                 password: this.state.password
             })
             .then(response => {
-                console.log('login response: ')
-                console.log(response)
                 if (response.status === 200) {
                     // update App.js state
                     this.props.updateUser({
@@ -40,16 +37,13 @@ class LoginForm extends Component {
                         // nora used the below instead to make it say 'join the party evie'
                         username: this.state.username
                     })
-                    console.log(this.state.username)
                     // update the state to redirect to home
                     this.setState({
                         redirectTo: '/'
                     })
                 }
             }).catch(error => {
-                console.log('login error: ')
                 console.log(error);
-
             })
     }
 

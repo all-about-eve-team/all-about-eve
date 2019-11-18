@@ -50,12 +50,11 @@ class Signup extends Component {
 				if (!response.data.errmsg || response.data.errmsg==="undefined") {
 					this.props.history.push('/login')
 				} else {
-					console.log('username already taken')
+					alert('username already taken')
 				}
 			}).catch(error => {
 				console.log('signup error: ')
 				console.log(error)
-
 			})
 		) : (
 			alert("Please enter a username, password, and e-mail.")

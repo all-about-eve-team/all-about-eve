@@ -69,5 +69,10 @@ export default {
         //GGRE--> For debugging
 		console.log("tags--> ", tags.join(","));
 		// return axios.get("/api/articles" + tags);
+    },
+    // mail routing
+    emailPost: function(postData){
+        return axios.post("/api/mail", postData)
     }
 }
+
