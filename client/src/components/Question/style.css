@@ -6,9 +6,8 @@
 .huh { 
   font-family: 'Rubik', sans-serif;
   overflow-y: scroll;
-  height: 200px;
-  width: 600px;
   margin-left:10%;
+  margin-right: 10%;
   border: solid;
   border-color: #FEDBD0; 
 }

@@ -9,7 +9,7 @@ function ProductPost (props) {
     return (
         <div>
             <br></br>
-        <h3>Product: <a href={props.productLink} target="_blank">{props.title}</a></h3>
+        <h3>Product: <a href={props.productLink} target="_blank" rel="noopener noreferrer">{props.title}</a></h3>
         <hr></hr>
         <Container>
             <Row>

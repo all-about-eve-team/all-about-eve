@@ -1,20 +1,19 @@
 import React from "react";
 import "./style.css";
-import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 
 function QuestionComment(props) {
+    const spanStyle = {
+        fontWeight: "bold"
+    }
     return (
         <div>
-        
-                <ul>
-                Comment from {props.author}: 
-               
-                <li>{props.text}</li>
-                
-                
-                </ul><hr></hr></div>
-            
+            <Container>
+                <span style={spanStyle}>{props.author}</span>:      {props.text}
+                <hr></hr>
+            </Container>
+        </div>
     )
 }
 

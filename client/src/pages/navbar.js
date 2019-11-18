@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../App.css';
 import API from "../utils/API";
 import logo from "../images/logo.png";
@@ -28,18 +28,21 @@ class Navbar extends Component {
     render() {
         const loggedIn = this.props.loggedIn;
         const user = this.props.user
-        
+
 
         return (
             <div>
 
                 <header className="navbar App-header" id="nav-container">
-                  
+
                     <div className="col-4" >
                         {loggedIn ? (
                             <section className="navbar-section">
                                 <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
                                     <span className="text-secondary">logout</span></Link>
+                                <Link to="/" className="btn btn-link text-secondary">
+                                    <span className="text-secondary">about</span>
+                                </Link>
                                 <Link to="/forum" className="btn btn-link text-secondary">
                                     <span className="text-secondary">forum</span>
                                 </Link>
@@ -63,7 +66,7 @@ class Navbar extends Component {
                                     </Link>
                                 </section>
                             )}
-                   </div>
+                    </div>
                     <div className="col-4 col-mr-auto">
                         <div id="top-filler"></div>
                         <img src={logo} alt="Logo" />
@@ -75,7 +78,7 @@ class Navbar extends Component {
                     </div>
                 </header>
             </div>
-            
+
 
         );
 

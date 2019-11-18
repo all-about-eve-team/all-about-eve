@@ -22,16 +22,19 @@ function Question(props) {
             <br></br>
             </Col>
             </Row>
-            </Container>
+            {/* </Container> */}
             <br></br>
-
+            {/* <Container> */}
             {props.comments.length ? (
+                <Container>
                 <div class="huh">
                     {props.comments}
                 </div>
+                </Container>
             ) : (
                     null
                 )}
+                </Container>
         </div>
 
     )
