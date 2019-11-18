@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
     font-family: 'Rubik', sans-serif;
     src: url('https://fonts.googleapis.com/css?family=Rubik&display=swap'); 
@@ -26,7 +25,6 @@
   .review{
       margin: auto;
   }
-=======
 .commentsBox {
         font-family: 'Rubik', sans-serif;
         overflow-y: scroll;
@@ -36,4 +34,3 @@
         border: solid;
         border-color: #FEDBD0;
 }
->>>>>>> master
