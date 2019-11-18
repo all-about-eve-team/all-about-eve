@@ -179,7 +179,7 @@ class Forum extends Component {
 
                                 {this.state.submittedQuestion.map(post => (
 
-                                    <div className="questionwrapper" data-aos="flip-up" data-aos-duration = "1500" 
+                                    <div className="questionwrapper" data-aos="flip-up" data-aos-duration = "1300" 
                                     data-aos-easing = "linear"
                                     >
                                         <div >
