@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 // components
 import Signup from './pages/sign-up'
 import LoginForm from './pages/login-form'
-import Navbar from './pages/navbar'
+import Nav from './components/Nav'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import ContactUs from './pages/contactus';
@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Nav user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Welcome, {this.state.username}!</p>

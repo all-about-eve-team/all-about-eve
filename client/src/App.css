@@ -16,11 +16,14 @@ body{
   height: 80px;
 }
 
-.App-header {
+Nav {
   background-color: #DF7160;
   height: 150px;
   padding: 20px;
   color: #FEFEFE;
+  margin-top: auto;
+  font-family: 'Rubik', sans-serif;
+/* color:#442C2E */
 }
 
 .App-title {
@@ -31,24 +34,24 @@ body{
   font-size: large;
 }
 
-.navbar {
+/* .navbar {
  
   margin-top: auto;
   font-family: 'Rubik', sans-serif;
 color:#442C2E
   
   
-}
+} */
 
-.navbar-section  {
+/* .navbar-section  {
 color: #442C2E;
-}
+} */
 
 #top-filler {
   margin-bottom: auto;
 }
 
-#nav-container {
+.nav-container {
   align-items: flex-end;
 }
 
@@ -70,9 +73,9 @@ body, html {
   color:#442C2E;
 }
 
-img {
-  /* height: 00px; */
-}
+/* img {
+  height: 00px;
+} */
 
 .caption {
   display: -webkit-box;
