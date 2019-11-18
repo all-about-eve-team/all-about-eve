@@ -17,6 +17,7 @@ class Product extends Component {
         productCategory: "",
         author: this.props.username,
         authorid: this.props._id,
+        productLink: "",
         // the submittedProductPost state is what allows us to display all the posts:
         submittedProductPost: [],
         post: "",
@@ -53,7 +54,8 @@ class Product extends Component {
             title: this.state.title,
             text: this.state.text,
             productCategory: this.state.productCategory,
-            image: this.state.image
+            image: this.state.image,
+            productLink: this.state.productLink
         }
         API.createProductPost(newProductPost)
         this.setState(
@@ -61,7 +63,8 @@ class Product extends Component {
                 title: "",
                 text: "",
                 productCategory: "",
-                image: ""
+                image: "",
+                productLink: ""
             }
         )
         // reload the components so the new post displays
@@ -127,6 +130,15 @@ class Product extends Component {
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             className="formcontrol"
+                                            name="productLink"
+                                            type="text"
+                                            value={this.state.productLink}
+                                            onChange={this.handleInputChange}
+                                            placeholder="Product Link" />
+                                    </InputGroup>
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            className="formcontrol"
                                             name="text"
                                             type="text"
                                             value={this.state.text}
@@ -153,7 +165,6 @@ class Product extends Component {
                                     </InputGroup>
                                     <InputGroup className="mb-3">
                                         <button className="shape shape3" onClick={this.handleFormSubmit}
-                                        // style={'center'}
                                         >Submit</button>
                                     </InputGroup>
 
@@ -168,6 +179,7 @@ class Product extends Component {
                                                 title={post.title}
                                                 author={post.author}
                                                 productCategory={post.productCategory}
+                                                productLink={post.productLink}
                                                 image={post.image}
                                                 // here we loop through & display each post's comments:
                                                 productComments={post.productComments.map(comment => (
@@ -195,6 +207,7 @@ class Product extends Component {
                                                                 onChange={this.handleInputChange}
                                                                 placeholder="Comment here!"
                                                             />
+                                                            {/* in the button below we grab the post id so that when you submit it passes along the id of that particular post */}
                                                             <button className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
 
                                                         </InputGroup>
@@ -202,8 +215,6 @@ class Product extends Component {
 
 
                                                     {/* currently when you type in the question box it displays in all boxes, ha! it's a bug */}
-
-                                                    {/* in the button below we grab the post id so that when you submit it passes along the id of that particular post */}
 
                                                 </div>
                                             </Accordion>
