@@ -5,18 +5,15 @@ import ProductImage from "../ProductImage"
 function ProductPost (props) {
     return (
         <div>
-        <h4>Product Name: <a href={props.productLink} target="_blank">{props.title}</a></h4>
-        {/* <ul> */}
+        <h4>Product: <a href={props.productLink} target="_blank">{props.title}</a></h4>
         Product Review: {props.post}
         <br></br>
-        {/* <li>{this.props.author}</li> */}
         Category: {props.productCategory}
         <br></br>
-        Product Link: <a href={props.productLink} target="_blank"></a>
+        <br></br>
         Author: {props.author}
         <br></br>
-        {/* Comment:{this.props.comments} */}
-        {/* </ul> */}
+        <div><ProductImage title={props.title} image={props.image}/></div>
         <br></br>
         <div>
         Comments: {props.productComments}
