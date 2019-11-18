@@ -15,7 +15,7 @@
   }
   
   .brand span{
-    color:#fff;
+    color:#442C2E;
   }
   
   .wrapper{
@@ -27,7 +27,7 @@
   }
   
   .company-info{
-    background:#c9e6ff;
+    background:#FEDBD0;
   }
   
   .company-info h3, .company-info ul{
@@ -36,7 +36,7 @@
   }
   
   .contact{
-    background:#f9feff;
+    background:#FEDBD0;
   }
   
   /* FORM STYLES */
@@ -61,18 +61,18 @@
   .contact form button, .contact form input, .contact form textarea{
     width:100%;
     padding:1em;
-    border:1px solid #c9e6ff;
+    border:1px solid #FEDBD0;
   }
   
   .contact form button{
-    background:#c9e6ff;
+    background: #FEDBD0;
     border:0;
     text-transform: uppercase;
   }
   
   .contact form button:hover,.contact form button:focus{
-    background:#92bde7;
-    color:#fff;
+    background:#FEDBD0;
+    color: #442C2E;
     outline:0;
     transition: background-color 2s ease-out;
   }
