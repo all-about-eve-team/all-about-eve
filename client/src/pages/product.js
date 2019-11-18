@@ -116,8 +116,8 @@ class Product extends Component {
 
                         <div className="comment-page">
 
-                            <div className="prodct-input">
-                                <form className="prodct-post">
+                            <div className="product-input">
+                                <form className="product-post">
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             className="formcontrol"
