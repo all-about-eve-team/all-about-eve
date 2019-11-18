@@ -5,10 +5,12 @@ import QuestionComment from "../components/QuestionComment"
 import { makeStyles } from '@material-ui/core/styles'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import { FormControl, InputGroup, Alert, Dropdown, DropdownButton, Card } from 'react-bootstrap';
 import '../forum_style.css';
 import TagSelection from '../components/Tags'
 import { shape } from 'prop-types';
+import AOS from 'aos'
+
 
 
 class Forum extends Component {
@@ -28,7 +30,6 @@ class Forum extends Component {
     };
 
     componentDidMount() {
-
         API.getPost()
             .then(res => {
                 this.setState({
@@ -69,8 +70,13 @@ class Forum extends Component {
         this.componentDidMount()
     }
     pushonArray = value => {
-        this.state.submittedTags.push(value);
-        console.log(this.state.submittedTags)
+        let tagsVariable = this.state.submittedTags;
+        tagsVariable.push(value);
+        this.setState({
+            submittedTags : tagsVariable
+        })
+        console.log(this.state.submittedTags);
+        
     }
   
 
@@ -154,12 +160,14 @@ class Forum extends Component {
                                         >Submit</button>
                                     </InputGroup>
                                     
-                                    <TagSelection
+                                    {/* <TagSelection
                                     pushonArray = {this.pushonArray}
                                     value={this.value}
                                     submittedTags={this.submittedTags}>
 
-                                    </TagSelection>
+                                    </TagSelection> */}
+                                    
+                                   
 
 
 
@@ -171,8 +179,10 @@ class Forum extends Component {
 
                                 {this.state.submittedQuestion.map(post => (
 
-                                    <div className="questionwrapper">
-                                        <div>
+                                    <div className="questionwrapper" data-aos="flip-up" data-aos-duration = "1500" 
+                                    data-aos-easing = "linear"
+                                    >
+                                        <div >
                                             <Question
                                                 post={post.text}
                                                 title={post.title}
@@ -181,7 +191,7 @@ class Forum extends Component {
                                                 // here we loop through & display each post's comments:
                                                 //create an if else statement to be like "be the first to post a comment", student react router Book pages/Books
                                                 comments={post.comments.length ? (post.comments.map(comment => (
-                                                    <QuestionComment text={comment.text} author={comment.author} >
+                                                    <QuestionComment text={comment.text} author={comment.author} data-aos="flip-up">
                                                         {this.props.children}
                                                     </QuestionComment>
 
@@ -191,7 +201,9 @@ class Forum extends Component {
                                                 )
                                                 ) : (
                                                         <div>
-                                                            "Be the first to post!"</div>
+                                                            "Be the first to post!"
+                                                            
+                                                            </div>
                                                     )}
                                             />
 
@@ -214,7 +226,7 @@ class Forum extends Component {
                                                                 onChange={this.handleInputChange}
                                                                 placeholder="Comment here!"
                                                             />
-                                                            <button className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
+                                                            <button class="shape shape3" className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
 
                                                         </InputGroup>
                                                     </Accordion.Collapse>
@@ -238,7 +250,17 @@ class Forum extends Component {
                 )
                     :
                     (
-                        <h1>You must be logged in to view this content.</h1>
+                        // <h1>You must be logged in to view this content.</h1>
+                        
+                                <Alert variant="danger" dismissible>
+                                  <Alert.Heading>Oh snap! Log in to see content!</Alert.Heading>
+                                  <p>
+                                    
+                                  </p>
+                                </Alert>
+                             
+                          
+                        //   render(<AlertDismissibleExample />)
                     )}
             </div>)
 
