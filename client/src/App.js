@@ -24,46 +24,26 @@ class App extends Component {
     }
 
     this.getUser = this.getUser.bind(this)
-    //nora commented out the below for testing
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
   }
-  //nora commented the below out for testing
 
   componentDidMount() {
-    console.log("running getUser below")
-    //nora commenting getuser out for now
-    // this.getUser()
-
     AOS.init();
   }
 
   updateUser(userObject) {
     this.setState(userObject)
-    //nora added the below linefor testing
-    // this.getUser()
   }
 
   getUser() {
-    console.log("get user got called")
-    //  API.getUser(this.state.username).then(response=>{
-    //nora commenting out the above for a test 
-    axios.get('/user/' + this.state.username).then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
+    API.getUserInfo(this.state.username).then(response => {
       if (response.data.user) {
-        console.log("I know the user!");
-        console.log(response.data.user);
-        console.log('Get User: There is a user saved in the server session: ')
-
         this.setState({
           loggedIn: true,
-          // username: response.data.user.username
-          //nora testing added the below line
           username: this.state.username
         })
       } else {
-        console.log('Get user: no user');
         this.setState({
           loggedIn: false,
           username: null
@@ -73,16 +53,13 @@ class App extends Component {
   }
 
 
-
   render() {
-    // this.getUser()
     return (
       <div className="App">
-        {/* nora added user prop to navbar */}
         <Navbar user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
+          <p>Welcome, {this.state.username}!</p>
         }
         {/* Routes to different components */}
         <Route
@@ -94,7 +71,6 @@ class App extends Component {
         />
         <Route
           exact path="/product"
-          // the below allows me to send the user as a prop when they go to the period page!
           render={(props) => <Product {...props} loggedIn={this.state.loggedIn} username={this.state.username} />}
         />
         <Route
@@ -118,7 +94,6 @@ class App extends Component {
         render={() =>
           <ContactUs />}
           />
-
       </div>
     );
   }
