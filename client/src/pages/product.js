@@ -173,7 +173,11 @@ class Product extends Component {
                             <div>
                                 {/* here we loop through every submitted post and display the posts along with their related comments */}
                                 {this.state.submittedProductPost.map(post => (
+<<<<<<< HEAD
                                     <div className="productwrapper" data-aos="flip-up" data-aos-duration = "1500" 
+=======
+                                    <div className="productwrapper" data-aos="flip-up" data-aos-duration = "1300" 
+>>>>>>> master
                                     data-aos-easing = "linear">
                                         <div>
                                             <ProductPost post={post.text}
@@ -183,10 +187,20 @@ class Product extends Component {
                                                 productLink={post.productLink}
                                                 image={post.image}
                                                 // here we loop through & display each post's comments:
+<<<<<<< HEAD
                                                 productComments={post.productComments.map(comment => (
                                                     <ProductComment text={comment.text} author={comment.author} data-aos="flip-up"/>
                                                 )
                                                 )}
+=======
+                                                productComments={post.productComments.length ? (post.productComments.map(comment => (
+                                                    <ProductComment text={comment.text} author={comment.author} />
+                                                ))
+                                                ):(<div>
+                                                    "Be the first to post!"
+                                                    
+                                                    </div>)}
+>>>>>>> master
                                             />
 
                                         </div>
