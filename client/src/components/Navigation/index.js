@@ -90,6 +90,7 @@ class Navigation extends Component {
                                         <span className="text-secondary">sign up</span>
                                     </Link>
                                 </Nav>
+                              
                                
                                 <Nav className="navbar-section mr-auto">
                                     
@@ -97,7 +98,8 @@ class Navigation extends Component {
                                    
                                 </Nav>
                                 
-                                <Nav className="navbar-section mr-auto text-right">
+                               
+                                <Nav className="navbar-section mr-auto contactNav align-right">
                               
                                 <Link to="/contactus" className="btn btn-link text-secondary">
                                     <span className="text-secondary ">Contact Us</span>

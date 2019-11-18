@@ -43,9 +43,10 @@ color:#442C2E
   
 } */
 
-/* .navbar-section  {
-color: #442C2E;
-} */
+.navbar-section  {
+/* color: #442C2E; */
+margin-top: auto;
+}
 
 #top-filler {
   margin: auto;
@@ -62,6 +63,10 @@ color: #442C2E;
 #responsive-navbar-nav-right{
   text-align: right;
 }
+
+/* .contactNav{
+  float:right;
+} */
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
