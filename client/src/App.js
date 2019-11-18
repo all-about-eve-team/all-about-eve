@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 // components
 import Signup from './pages/sign-up'
 import LoginForm from './pages/login-form'
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 import Home from './pages/home'
 import Forum from "./pages/forum"
 import ContactUs from './pages/contactus';
@@ -11,6 +11,7 @@ import Article from "./pages/article"
 import API from './utils/API'
 import Product from "./pages/product";
 import AOS from 'aos';
+
 
 // need to see when getuser is getting called
 
@@ -55,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Navigation user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
           <p>Welcome, {this.state.username}!</p>

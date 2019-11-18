@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import API from "../utils/API"
+import Container from "react-bootstrap/Container";
 
 class LoginForm extends Component {
     constructor() {
@@ -53,6 +54,7 @@ class LoginForm extends Component {
         } else {
             return (
                 <div>
+                    <Container>
                     <h4>Login</h4>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -93,6 +95,7 @@ class LoginForm extends Component {
                                 type="submit">Login</button>
                         </div>
                     </form>
+                    </Container>
                 </div>
             )
         }
