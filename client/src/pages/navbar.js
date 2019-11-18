@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import '../App.css';
-import API from "../utils/API"
+import API from "../utils/API";
+import logo from "../images/logo.png";
+// import Row from 'react-bootstrap/Row'
+
 
 class Navbar extends Component {
     constructor() {
@@ -31,6 +34,7 @@ class Navbar extends Component {
             <div>
 
                 <header className="navbar App-header" id="nav-container">
+                  
                     <div className="col-4" >
                         {loggedIn ? (
                             <section className="navbar-section">
@@ -62,8 +66,7 @@ class Navbar extends Component {
                    </div>
                     <div className="col-4 col-mr-auto">
                         <div id="top-filler"></div>
-                        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                        <h1 className="App-title">All About Eve</h1>
+                        <img src={logo} alt="Logo" />
                     </div>
                     <div className="col-4 col-mr-auto text-right">
                         <Link to="/contactus" className="btn btn-link text-secondary">
@@ -72,6 +75,7 @@ class Navbar extends Component {
                     </div>
                 </header>
             </div>
+            
 
         );
 

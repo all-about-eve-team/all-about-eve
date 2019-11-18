@@ -17,7 +17,7 @@ body{
 }
 
 .App-header {
-  background-color: #FFD3C5;
+  background-color: #DF7160;
   height: 150px;
   padding: 20px;
   color: white;
@@ -64,7 +64,9 @@ body, html {
   color: #777;
 }
 
-
+img {
+  /* height: 00px; */
+}
 
 .caption {
   display: -webkit-box;

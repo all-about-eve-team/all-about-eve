@@ -29,3 +29,10 @@ h4 {
 body {
   font-family: 'Rubik', sans-serif;
 }
+hr {
+  border-color: red;
+}
+h3 {
+  font-family:'Rubik', sans-serif; ;
+ font-style: italic;
+}

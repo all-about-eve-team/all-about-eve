@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { FormControl, InputGroup, Dropdown, DropdownButton, Card } from 'react-bootstrap';
+import { FormControl, InputGroup, Dropdown, DropdownButton, Checkbox, Card } from 'react-bootstrap';
 
 
 
@@ -15,6 +15,7 @@ function TagSelection(props) {
             <DropdownButton id="dropdown-item-button" title="Dropdown button">
                 {/* /this is something to do when this button is clicked */}
                 <div className="dropdownDiv">
+                    
                     <Dropdown.Item value="Health Conditions and Diseases" onClick={() => props.pushonArray("Health Conditions and Diseases")}>Health Conditions and Diseases</Dropdown.Item>
                     <Dropdown.Item value="Nutrition and Physical Activity" onClick={() => props.pushonArray("Nutrition and Physical Activity")}>Nutrition and Physical Activity</Dropdown.Item>
                     <Dropdown.Item value="Babies and Toddlers" onClick={() => props.pushonArray("Babies and Toddlers")}>Babies and Toddlers</Dropdown.Item>
