@@ -155,7 +155,7 @@ class Forum extends Component {
                                             placeholder="category" />
                                     </InputGroup>
                                     <InputGroup className="mb-3">
-                                        <button class="shape shape3" onClick={this.handleFormSubmit}
+                                        <button className="shape shape3" onClick={this.handleFormSubmit}
                                         // style={'center'}
                                         >Submit</button>
                                     </InputGroup>
@@ -227,7 +227,7 @@ class Forum extends Component {
                                                                 onChange={this.handleInputChange}
                                                                 placeholder="Comment here!"
                                                             />
-                                                            <button class="shape shape3" className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
+                                                            <button className="shape shape3" className={post._id} data-value={post._id} onClick={this.handleCommentSubmit}>Submit!</button>
 
                                                         </InputGroup>
                                                     </Accordion.Collapse>
