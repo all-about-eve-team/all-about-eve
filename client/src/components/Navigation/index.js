@@ -67,7 +67,7 @@ class Navigation extends Component {
                             <Nav className="navbar-section mr-auto text-right">
                               
                                 <Link to="/contactus" className="btn btn-link text-secondary">
-                                    <span className="text-secondary ">Contact Us</span>
+                                    <span className="text-secondary ">contact us</span>
                                 </Link>
                               
                             </Nav>
