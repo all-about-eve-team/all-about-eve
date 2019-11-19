@@ -1,7 +1,10 @@
 # all-about-eve
 Heroku link: https://radiant-hamlet-57340.herokuapp.com/
-Test user: 
+
+Test user:
+
 username: Test
+<br>
 password: test
 
 # Project Goal
@@ -12,11 +15,19 @@ All About Eve is a crowd-sourcing health page by women, for women. We wanted to 
 
 The homepage of All About Eve provides some inspiration for what users can discuss on the app. 
 
+![Homepage](client/public/readmescreenshot/home.png)
+
 First, the user creates an account. Presently, username, password, and email are the only required fields.
+
+![Homepage](client/public/readmescreenshot/signup.png)
 
 Once the user has created an account, they will be redirected to the login page, at which point they login and then have access to the protected content of the site: the Forum, the Product Review page, and the Articles page.
 
+![Homepage](client/public/readmescreenshot/login.png)
+
 Whether logged in or out, the user has access to the Contact Us page, which allows them to send an email to the All About Eve team with questions about the sites or suggestions. 
+
+![Homepage](client/public/readmescreenshot/contactus.png)
 
 The user can log out at any time. Their posts and comments will be visible to any user who is logged in.
 
@@ -26,13 +37,19 @@ The user can log out at any time. Their posts and comments will be visible to an
 
 The Forum allows users to post a question about women's health and answer other users' questions. They can enter a question and details at the top of the page, and the post will display at the top. Each post has a space for any user to add their comments. 
 
+![Homepage](client/public/readmescreenshot/forum.png)
+
 ## Product Review
 
 The Product Review section allows users to post reviews of women's health related products and medicines and to comment on other users' reviews. The user can include the product name, a link to an image of the product, and their review of the product.
 
+![Homepage](client/public/readmescreenshot/productreview.png)
+
 ## Articles
 
 The Articles section allows users to browse various articles imported from https://healthfinder.gov/FreeContent/Developer/Contents.aspx. The articles from healthfinder.gov have been filtered to display articles related to women's health.
+
+![Homepage](client/public/readmescreenshot/
 
 # Technology
 
@@ -52,6 +69,7 @@ The Articles section allows users to browse various articles imported from https
 * bcrypt
 * Passport
 * Nodemailer
+* Google Gmail API
 
 
 # Potential Improvements
