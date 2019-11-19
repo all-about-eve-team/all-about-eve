@@ -59,7 +59,7 @@ class App extends Component {
         <Navigation user={this.state.username} updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
-          <p>Welcome, {this.state.username}!</p>
+          <p className="welcomeUser">Welcome, {this.state.username}!</p>
         }
         {/* Routes to different components */}
         <Route

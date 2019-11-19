@@ -140,3 +140,12 @@ h3 {
   justify-content: center;
 }
 
+.welcomeUser {
+  padding-top:2%;
+  background-color: #FFF4F4;
+  font-family: 'Rubik', sans-serif;
+  color: #DF7160;
+font-weight: bold;
+  margin-bottom:0%;
+
+}
