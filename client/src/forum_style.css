@@ -1,4 +1,6 @@
-
+body{
+  background-color: #FFF4F4
+}
 .question-post{
     padding-left : 35%;
     padding-right: 35%;
