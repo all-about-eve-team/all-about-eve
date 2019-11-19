@@ -13,7 +13,7 @@ function ArticleWrapper(props) {
         {props.articles.map(article => (
           <li key={article.itemId} className="list-article-item">
             <Col>
-            <p> <strong><a href={article.url} target="blank">Title: {article.title}</a></strong></p>
+            <p> <strong><a href={article.url} target="blank">{article.title}</a></strong></p>
             </Col>
             <Col>
             <p>Tags: {article.tags.join(" | ")}</p>
