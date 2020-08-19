@@ -3,9 +3,9 @@ Heroku link: https://radiant-hamlet-57340.herokuapp.com/
 
 Test user:
 
-username: Test
+username: Billie
 <br>
-password: test
+password: billie42
 
 # Project Goal
 
